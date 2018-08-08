@@ -1,0 +1,87 @@
+create database UTU;
+use UTU;
+
+create table student(
+fname varchar(20),
+lname varchar(20),
+contactno bigint,
+Date_of_birth varchar(10),
+Mailid varchar(15));
+
+alter table student add city varchar(15);
+alter table student add address varchar(10) after lname;
+alter table student add srno int first;
+alter table student add gender varchar(7);
+alter table student add enro int;
+
+alter table student modify address varchar(50);
+
+alter table student modify city varchar(15) after address;
+
+alter table student modify gender char(1) after city;
+alter table student modify enro int first;
+
+alter table student change mailid emailid varchar(20);
+
+alter table student change date_of_birth dob date;
+alter table student change srno date_of_join date first;
+
+alter table student drop srno; //gives error as it doesnt exist;
+alter table student rename tblstudent;
+
+drop table tblstudent;
+
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| date_of_join | date        | YES  |     | NULL    |       |
+| enro         | int(11)     | YES  |     | NULL    |       |
+| fname        | varchar(20) | YES  |     | NULL    |       |
+| lname        | varchar(20) | YES  |     | NULL    |       |
+| address      | varchar(50) | YES  |     | NULL    |       |
+| city         | varchar(15) | YES  |     | NULL    |       |
+| gender       | char(1)     | YES  |     | NULL    |       |
+| contactno    | bigint(20)  | YES  |     | NULL    |       |
+| dob          | date        | YES  |     | NULL    |       |
+| emailid      | varchar(20) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+insert into student values ('2000-01-01','101','','','','','','','','');
+insert into student values ('2000-02-21','102','','','','','','','','');
+insert into student values ('2000-03-25','103','','','','','','','','');
+insert into student values ('2000-04-26','104','','','','','','','','');
+insert into student values ('2000-05-28','105','','','','','','','','');
+insert into student values ('2000-06-26','106','','','','','','','','');
+insert into student values ('2000-07-15','107','','','','','','','','');
+insert into student values ('2000-08-16','108','','','','','','','','');
+insert into student values ('2000-09-15','109','','','','','','','','');
+insert into student values ('2000-10-01','110','','','','','','','','');
+
+
+
+create table dept(
+deptid int(5),
+dept_name varchar(10));
+
+insert into dept values ('1','BMIIT');
+insert into dept values ('2','CGPIT');
+insert into dept values ('3','SRIMCA');
+
+Create table employee(
+eid int(5),
+deptid int(5),
+emp_name varchar(20));
+
+insert into employee values ('1','1','manish');
+insert into employee values ('2','1','bhavik');
+insert into employee values ('3','1','preeti');
+insert into employee values ('4','2','rakesh');
+insert into employee values ('5','2','suresh');
+insert into employee values ('6','3','mukesh');
+insert into employee values ('7','3','manoj');
+
+select dept_name,count(emp_name) from dept d,employee e where d.deptid=e.deptid group by dept_name;
+
+
+
+

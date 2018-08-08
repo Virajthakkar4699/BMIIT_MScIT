@@ -1,0 +1,87 @@
+use utu
+
+create table tblstudent(
+enro int,
+fname varchar(20),
+lname varchar(20),
+city varchar(15),
+dob date,
+contactno bigint(20));
+
+insert into tblstudent values('101','sumit','jasani','surat','2000-09-12','9874563210');
+insert into tblstudent values('102','urja','naik','valsad','2001-01-06','9632587410');
+insert into tblstudent values('103','deep','tallewar','baroda','2000-10-13','9630125874');
+insert into tblstudent values('104','yash','davra','mumbai','2001-05-08','9987452103');
+insert into tblstudent values('93','mihir','joshi','surat','2001-06-26','8563247890');
+insert into tblstudent values('81','harshil','jani','vapi','2001-05-01','8965230147');
+insert into tblstudent values('105','riya','gandhi','navsari','2000-09-02','6985321470');
+insert into tblstudent values('79','vikash','rajpurohit','bardoli','2000-11-23','7895231053');
+insert into tblstudent values('106','kishan','joshi','surat','2001-07-18','6985327410');
+insert into tblstudent values('63','bhautik','lukhi','valsad','2001-05-15','9985632100');
+
+alter table tblstudent add primary key(enro);
+
+select * from tblstudent;
+select fname,lname from tblstudent;
+select distinct city from tblstudent;
+select fname,lname,dob from tblstudent;
+select * from tblstudent where city='surat';
+select * from tblstudent order by enro desc;
+
+select * from tblstudent limit 1,5;
+
+alter table tblstudent add gender char(1);
+update tblstudent set gender='m' where enro='101';
+update tblstudent set gender='f' where enro='102';
+update tblstudent set gender='m' where enro='103';
+update tblstudent set gender='m' where enro='104';
+update tblstudent set gender='m' where enro='93';
+update tblstudent set gender='m' where enro='81';
+update tblstudent set gender='f' where enro='105';
+update tblstudent set gender='m' where enro=79'';
+update tblstudent set gender='m' where enro='106';
+update tblstudent set gender='m' where enro='63';
+
+select * from tblstudent order by enro desc limit 1,3;
+
+select * from tblstudent where gender='m' and city='valsad';
+
+select * from tblstudent order by enro desc;
+
+select * from tblstudents where city='valsad';
+update tblestudent set contactno=6852987530,dob='1999-01-06' where fname='harshil';
+select dob from tblstudent where fname='mihir';
+
+insert into tblstudent values('100','rohit','mehera','mumbai','2003-03-24','','');
+
+select * from tblstudent where lname='joshi';
+
+insert into tblstudent values('77','khyati','parekh','anand','2000-06-18','9000800001','');
+
+select * from tblstudent where enro=102;
+
+select * from tblstudent where gender is null;
+
+update tblstudent set gender='f' where enro='77';
+update tblstudent set gender='m' where enro='79';
+
+delete from tblstudent where city='vapi';
+
+select * from tblstudent order by enro desc limit 6,9;
+
+select count(enro) from tblstudent;
+
+truncate from tblstudent;
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
