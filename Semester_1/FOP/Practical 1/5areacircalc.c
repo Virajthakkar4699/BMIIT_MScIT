@@ -2,13 +2,18 @@
 void main()
 
 {
-	printf("Find Area of Circle\n");
+	printf("Find Area of Rectangle\n");
 
-	float radius;
-	printf("Enter the radius of :- ");
-	scanf("%f", &radius);
-	
-	float area=(3.14*radius*radius);
-	printf("Area of Circle is %f\n",area);
+	int length;
+	printf("Enter the length of Rectangle:- ");
+	scanf("%f", &length);
+
+	int width;
+	printf("Enter the Width of Rectangle:- ");
+	scanf("%f", &width);
+
+
+	float area=(length*width);
+	printf("Area of Rectangle is %f\n",area);
 
 }

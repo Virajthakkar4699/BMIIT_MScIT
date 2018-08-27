@@ -4,7 +4,7 @@ void main()
 	int num1;
 	int num2;
 	int num3;
-	
+
 	printf("Enter First Number=");
 	scanf("%d", &num1);
 
@@ -19,33 +19,30 @@ void main()
 		printf("all three are equal");
 	}
 	else if(num1==num2 && num2>num3)
-	{	
+	{
 		printf("Num1 and Num2 are greater");
 	}
 
 	else if(num1==num2 && num2<num3)
-	{	
+	{
 		printf("Num 3 is greater");
 	}
 
 	else if(num2==num3 && num2>num1)
-	{	
+	{
 		printf("Num2 and Num3 are greater");
 	}
-	
+
 	else if(num2==num3 && num2<num1)
-	{	
+	{
 		printf("Num 1 is greater");
 	}
-
-
 	else if(num1==num3 && num1>num2)
-	{	
+	{
 		printf("Num1 and Num3 are greater");
 	}
-
 	else if(num1==num3 && num1<num2)
-	{	
+	{
 		printf(" Num2 is greater");
 	}
 
