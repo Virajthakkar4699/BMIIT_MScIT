@@ -9,7 +9,7 @@ void main()
 	int sum=0;
 	while(counter<=value1)
 	{
-	if(counter%2==0)
+	if(counter%2==1)
 	{
 	sum=sum+counter;
 	counter++;
