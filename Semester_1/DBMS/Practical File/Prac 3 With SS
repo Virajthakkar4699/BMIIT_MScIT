@@ -1,0 +1,313 @@
+use utu;
+
+create table tblcity(
+cid int(15) primary key auto_increment,
+name varchar(20) not null);
+desc tblcity;
+
+mysql> desc tblcity;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| cid   | int(15)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(20) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.02 sec)
+
+
+
+create table tblstudent_details(
+enro int primary key,
+fname varchar(20) not null,
+lname varchar(20) not null,
+cityid varchar(15) references tblcity(cid),
+gender char(1) not null,
+dob date not null,
+contactno bigint(10) unique);
+
+desc tblstudent_details;
+mysql> desc tblstudent_details;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| enro      | int(11)     | NO   | PRI | NULL    |       |
+| fname     | varchar(20) | NO   |     | NULL    |       |
+| lname     | varchar(20) | NO   |     | NULL    |       |
+| cityid    | varchar(15) | YES  |     | NULL    |       |
+| gender    | char(1)     | NO   |     | NULL    |       |
+| dob       | date        | NO   |     | NULL    |       |
+| contactno | bigint(10)  | YES  | UNI | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+
+
+insert into tblcity(name) values('Surat');
+insert into tblcity(name) values('Vadodara');
+insert into tblcity(name) values('Bhuj');
+insert into tblcity(name) values('Rajkot');
+insert into tblcity(name) values('Bhavnagar');
+insert into tblcity(name) values('Bardoli');
+
+insert into tblstudent_details values(1,'Viraj','Thakkar',1,'M','1999-12-21',8469904699);
+insert into tblstudent_details values(2,'Pranjal','Agarwal',2,'F','2000-09-28',7896541230);
+insert into tblstudent_details values(3,'Jiya','Shah',3,'F','2000-08-19',1236547890);
+insert into tblstudent_details values(4,'Vikas','Rajpurohit',4,'M','1998-06-15',1478523690);
+insert into tblstudent_details values(5,'Prateek','Patel',5,'M','2001-02-25',3698521470);
+insert into tblstudent_details values(6,'nirmal','Rajpopat',5,'M','2005-09-26',9512364701);
+insert into tblstudent_details values(7,'heet','Patel',4,'M','2000-10-11',8523697410);
+insert into tblstudent_details values(8,'rushabh','Shah',3,'M','2001-4-28',4563217890);
+insert into tblstudent_details values(9,'devarsh','Randeria',2,'M','2003-01-31',3574128963);
+insert into tblstudent_details values(10,'prajay','Mehta',1,'M','2000-05-14',3265417890);
+
+create table tblinstitute(
+iid int primary key auto_increment,
+name varchar(100) not null);
+desc tblinstitute;
+mysql> desc tblinstitute;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| iid   | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(100) | NO   |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+
+create table tbldepartment(
+did int primary key,
+name varchar(50) not null,
+instituteid int references tblinstitute(iid));
+desc tbldepartment;
+mysql> desc tblinstitute;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| iid   | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(100) | NO   |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+insert into tblinstitute(name) values('SRIMCA');
+insert into tblinstitute(name) values('CGPIT');
+insert into tblinstitute(name) values('SRCP');
+insert into tblinstitute(name) values('B.V. PATEL');
+insert into tblinstitute(name) values('BMIIT');
+
+insert into tbldepartment values(1,'Intg MCA',1);
+insert into tbldepartment values(2,'BCA',1);
+insert into tbldepartment values(3,'Physiotherapy',3);
+insert into tbldepartment values(4,'B.Com',4);
+insert into tbldepartment values(5,'Intg MScIT',5);
+insert into tbldepartment values(6,'MScIT',5);
+insert into tbldepartment values(7,'BBA',4);
+insert into tbldepartment values(8,'Sports',3);
+insert into tbldepartment values(9,'Mechanical',2);
+insert into tbldepartment values(10,'MCA',1);
+
+alter table tblstudent_details add percentage float(4,2) check (percentage<100); #q1
+desc tblstudent_details;
+mysql> desc tblstudent_details;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| enro       | int(11)     | NO   | PRI | NULL    |       |
+| fname      | varchar(20) | NO   |     | NULL    |       |
+| lname      | varchar(20) | NO   |     | NULL    |       |
+| cityid     | varchar(15) | YES  |     | NULL    |       |
+| gender     | char(1)     | NO   |     | NULL    |       |
+| dob        | date        | NO   |     | NULL    |       |
+| contactno  | bigint(10)  | YES  | UNI | NULL    |       |
+| percentage | float(4,2)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+
+alter table tblstudent_details add emailid varchar(30) unique after contactno; #q2
+desc tblstudent_details;
+mysql> desc tblstudent_details;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| enro       | int(11)     | NO   | PRI | NULL    |       |
+| fname      | varchar(20) | NO   |     | NULL    |       |
+| lname      | varchar(20) | NO   |     | NULL    |       |
+| cityid     | varchar(15) | YES  |     | NULL    |       |
+| gender     | char(1)     | NO   |     | NULL    |       |
+| dob        | date        | NO   |     | NULL    |       |
+| contactno  | bigint(10)  | YES  | UNI | NULL    |       |
+| emailid    | varchar(30) | YES  | UNI | NULL    |       |
+| percentage | float(4,2)  | YES  |     | NULL    |       |
+| deptid     | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+
+
+insert into tblstudent_details(enro,fname,lname,cityid,gender,dob,contactno) values(99,'Shrey','Malhotra',2,'M','2001-07-21',8888899999); #q3
+mysql> select * from tblstudent_details;
++------+---------+------------+--------+--------+------------+------------+------------+
+| enro | fname   | lname      | cityid | gender | dob        | contactno  | percentage |
++------+---------+------------+--------+--------+------------+------------+------------+
+|    1 | Viraj   | Thakkar    | 1      | M      | 1999-12-21 | 8469904699 |       NULL |
+|    2 | Pranjal | Agarwal    | 2      | F      | 2000-09-28 | 7896541230 |       NULL |
+|    3 | Jiya    | Shah       | 3      | F      | 2000-08-19 | 1236547890 |       NULL |
+|    4 | Vikas   | Rajpurohit | 4      | M      | 1998-06-15 | 1478523690 |       NULL |
+|    5 | Prateek | Patel      | 5      | M      | 2001-02-25 | 3698521470 |       NULL |
+|    6 | nirmal  | Rajpopat   | 5      | M      | 2005-09-26 | 9512364701 |       NULL |
+|    7 | heet    | Patel      | 4      | M      | 2000-10-11 | 8523697410 |       NULL |
+|    8 | rushabh | Shah       | 3      | M      | 2001-04-28 | 4563217890 |       NULL |
+|    9 | devarsh | Randeria   | 2      | M      | 2003-01-31 | 3574128963 |       NULL |
+|   10 | prajay  | Mehta      | 1      | M      | 2000-05-14 | 3265417890 |       NULL |
+|   99 | Shrey   | Malhotra   | 2      | M      | 2001-07-21 | 8888899999 |       NULL |
++------+---------+------------+--------+--------+------------+------------+------------+
+11 rows in set (0.00 sec)
+
+
+alter table tblstudent_details add deptid int references tbldepartment(did); #q4
+desc tblstudent_details;
+mysql> desc tblstudent_details;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| enro       | int(11)     | NO   | PRI | NULL    |       |
+| fname      | varchar(20) | NO   |     | NULL    |       |
+| lname      | varchar(20) | NO   |     | NULL    |       |
+| cityid     | varchar(15) | YES  |     | NULL    |       |
+| gender     | char(1)     | NO   |     | NULL    |       |
+| dob        | date        | NO   |     | NULL    |       |
+| contactno  | bigint(10)  | YES  | UNI | NULL    |       |
+| percentage | float(4,2)  | YES  |     | NULL    |       |
+| deptid     | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+
+update tblstudent_details set emailid='viraj@gmail.com',percentage=98.50,deptid=1 where enro='1'; #q5
+update tblstudent_details set emailid='pranjal@gmail.com',percentage=89.25,deptid=2 where enro='2'; #q5
+update tblstudent_details set emailid='jiya@gmail.com',percentage=96.25,deptid=3 where enro='3'; #q5
+update tblstudent_details set emailid='vikas@gmail.com',percentage=75.61,deptid=4 where enro='4'; #q5
+update tblstudent_details set emailid='prateek@gmail.com',percentage=55.25,deptid=5 where enro='5'; #q5
+update tblstudent_details set emailid='nirmal@gmail.com',percentage=98.23,deptid=5 where enro='6'; #q5
+update tblstudent_details set emailid='heet@gmail.com',percentage=85.26,deptid=4 where enro='7'; #q5
+update tblstudent_details set emailid='rushabh@gmail.com',percentage=65.65,deptid=3 where enro='8'; #q5
+update tblstudent_details set emailid='devarsh@gmail.com',percentage=67.65,deptid=2 where enro='9'; #q5
+update tblstudent_details set emailid='prajay@gmail.com',percentage=53.25,deptid=1 where enro='10'; #q5
+update tblstudent_details set emailid='shery@gmail.com',percentage=56.32,deptid=5 where enro='99'; #q5
+mysql> select * from tblstudent_details;
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+| enro | fname   | lname      | cityid | gender | dob        | contactno  | emailid           | percentage | deptid |
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+|    1 | Viraj   | Thakkar    | 1      | M      | 1999-12-21 | 8469904699 | NULL              |       NULL |   NULL |
+|    2 | Pranjal | Agarwal    | 2      | F      | 2000-09-28 | 7896541230 | pranjal@gmail.com |      89.25 |      2 |
+|    3 | Jiya    | Shah       | 3      | F      | 2000-08-19 | 1236547890 | jiya@gmail.com    |      96.25 |      3 |
+|    4 | Vikas   | Rajpurohit | 4      | M      | 1998-06-15 | 1478523690 | vikas@gmail.com   |      75.61 |      4 |
+|    5 | Prateek | Patel      | 5      | M      | 2001-02-25 | 3698521470 | prateek@gmail.com |      55.25 |      5 |
+|    6 | nirmal  | Rajpopat   | 5      | M      | 2005-09-26 | 9512364701 | nirmal@gmail.com  |      98.23 |      5 |
+|    7 | heet    | Patel      | 4      | M      | 2000-10-11 | 8523697410 | heet@gmail.com    |      85.26 |      4 |
+|    8 | rushabh | Shah       | 3      | M      | 2001-04-28 | 4563217890 | rushabh@gmail.com |      65.65 |      3 |
+|    9 | devarsh | Randeria   | 2      | M      | 2003-01-31 | 3574128963 | devarsh@gmail.com |      67.65 |      2 |
+|   10 | prajay  | Mehta      | 1      | M      | 2000-05-14 | 3265417890 | prajay@gmail.com  |      53.25 |      1 |
+|   99 | Shrey   | Malhotra   | 2      | M      | 2001-07-21 | 8888899999 | shery@gmail.com   |      56.32 |      5 |
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+11 rows in set (0.00 sec)
+
+
+select cityid,deptid,fname,lname from tblstudent_details; #q6
+mysql> select cityid,deptid,fname,lname from tblstudent_details; #q6
++--------+--------+---------+------------+
+| cityid | deptid | fname   | lname      |
++--------+--------+---------+------------+
+| 1      |   NULL | Viraj   | Thakkar    |
+| 2      |      2 | Pranjal | Agarwal    |
+| 3      |      3 | Jiya    | Shah       |
+| 4      |      4 | Vikas   | Rajpurohit |
+| 5      |      5 | Prateek | Patel      |
+| 5      |      5 | nirmal  | Rajpopat   |
+| 4      |      4 | heet    | Patel      |
+| 3      |      3 | rushabh | Shah       |
+| 2      |      2 | devarsh | Randeria   |
+| 1      |      1 | prajay  | Mehta      |
+| 2      |      5 | Shrey   | Malhotra   |
++--------+--------+---------+------------+
+11 rows in set (0.00 sec)
+
+
+select * from tblstudent_details order by deptid; #q7
+mysql> select * from tblstudent_details order by deptid; #q7
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+| enro | fname   | lname      | cityid | gender | dob        | contactno  | emailid           | percentage | deptid |
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+|    1 | Viraj   | Thakkar    | 1      | M      | 1999-12-21 | 8469904699 | NULL              |       NULL |   NULL |
+|   10 | prajay  | Mehta      | 1      | M      | 2000-05-14 | 3265417890 | prajay@gmail.com  |      53.25 |      1 |
+|    2 | Pranjal | Agarwal    | 2      | F      | 2000-09-28 | 7896541230 | pranjal@gmail.com |      89.25 |      2 |
+|    9 | devarsh | Randeria   | 2      | M      | 2003-01-31 | 3574128963 | devarsh@gmail.com |      67.65 |      2 |
+|    3 | Jiya    | Shah       | 3      | F      | 2000-08-19 | 1236547890 | jiya@gmail.com    |      96.25 |      3 |
+|    8 | rushabh | Shah       | 3      | M      | 2001-04-28 | 4563217890 | rushabh@gmail.com |      65.65 |      3 |
+|    4 | Vikas   | Rajpurohit | 4      | M      | 1998-06-15 | 1478523690 | vikas@gmail.com   |      75.61 |      4 |
+|    7 | heet    | Patel      | 4      | M      | 2000-10-11 | 8523697410 | heet@gmail.com    |      85.26 |      4 |
+|    5 | Prateek | Patel      | 5      | M      | 2001-02-25 | 3698521470 | prateek@gmail.com |      55.25 |      5 |
+|    6 | nirmal  | Rajpopat   | 5      | M      | 2005-09-26 | 9512364701 | nirmal@gmail.com  |      98.23 |      5 |
+|   99 | Shrey   | Malhotra   | 2      | M      | 2001-07-21 | 8888899999 | shery@gmail.com   |      56.32 |      5 |
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+
+
+commit; #q8
+START TRANSACTION;
+
+insert into tblstudent_details(enro,fname,lname,cityid,gender,dob,contactno,emailid,percentage) values(56,'Kush','Parmar',1,'M','2000-05-15',7200072000,'kush@gmail.com',82); #q8
+-------------------------------------------------------------------------------------------------------------
+mysql> insert into tblstudent_details(enro,fname,lname,cityid,gender,dob,contactno,emailid,percentage) 
+values(56,'Kush','Parmar',1,'M','2000-05-15',7200072000,'kush@gmail.com',82); #q8
+Query OK, 1 row affected (0.08 sec)
+-------------------------------------------------------------------------------------------------------------
+
+update tblstudent_details set emailid='shrey@yahoo.in',percentage=82 where enro=99; #q8
+-------------------------------------------------------------------------------------------------------------
+mysql> update tblstudent_details set emailid='shrey@yahoo.in',percentage=82 where enro=99; #q8
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+-------------------------------------------------------------------------------------------------------------
+
+delete from tblstudent_details where cityid='6'; #q8
+select * from tblstudents;
+-------------------------------------------------------------------------------------------------------------
+mysql> delete from tblstudent_details where cityid='6'; #q8
+Query OK, 0 rows affected (0.00 sec)
+-------------------------------------------------------------------------------------------------------------
+
+
+select * from tblstudent_details; #q9
+mysql> select * from tblstudent_details; #q9
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+| enro | fname   | lname      | cityid | gender | dob        | contactno  | emailid           | percentage | deptid |
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+|    1 | Viraj   | Thakkar    | 1      | M      | 1999-12-21 | 8469904699 | NULL              |       NULL |   NULL |
+|    2 | Pranjal | Agarwal    | 2      | F      | 2000-09-28 | 7896541230 | pranjal@gmail.com |      89.25 |      2 |
+|    3 | Jiya    | Shah       | 3      | F      | 2000-08-19 | 1236547890 | jiya@gmail.com    |      96.25 |      3 |
+|    4 | Vikas   | Rajpurohit | 4      | M      | 1998-06-15 | 1478523690 | vikas@gmail.com   |      75.61 |      4 |
+|    5 | Prateek | Patel      | 5      | M      | 2001-02-25 | 3698521470 | prateek@gmail.com |      55.25 |      5 |
+|    6 | nirmal  | Rajpopat   | 5      | M      | 2005-09-26 | 9512364701 | nirmal@gmail.com  |      98.23 |      5 |
+|    7 | heet    | Patel      | 4      | M      | 2000-10-11 | 8523697410 | heet@gmail.com    |      85.26 |      4 |
+|    8 | rushabh | Shah       | 3      | M      | 2001-04-28 | 4563217890 | rushabh@gmail.com |      65.65 |      3 |
+|    9 | devarsh | Randeria   | 2      | M      | 2003-01-31 | 3574128963 | devarsh@gmail.com |      67.65 |      2 |
+|   10 | prajay  | Mehta      | 1      | M      | 2000-05-14 | 3265417890 | prajay@gmail.com  |      53.25 |      1 |
+|   56 | Kush    | Parmar     | 1      | M      | 2000-05-15 | 7200072000 | kush@gmail.com    |      82.00 |   NULL |
+|   99 | Shrey   | Malhotra   | 2      | M      | 2001-07-21 | 8888899999 | shrey@yahoo.in    |      82.00 |      5 |
++------+---------+------------+--------+--------+------------+------------+-------------------+------------+--------+
+
+
+ROLLBACK; #q10
+-------------------------------------------------------------------------------------------------------------
+mysql> ROLLBACK; #q10
+Query OK, 0 rows affected (0.06 sec)
+-------------------------------------------------------------------------------------------------------------
+
+select count(enro) from tblstudent_details where deptid=5; #q11 
+mysql> select count(enro) from tblstudent_details where deptid=5; #q11
++-------------+
+| count(enro) |
++-------------+
+|           3 |
++-------------+
+1 row in set (0.00 sec)
