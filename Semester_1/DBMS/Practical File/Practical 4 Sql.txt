@@ -1,0 +1,113 @@
+#practical 4
+
+use utu;
+
+create table tblclientmaster(
+clientno int(5) primary key,
+name varchar(15) not null,
+city varchar(15) not null,
+pincode int(6) not null,
+state varchar(15) not null,
+baldue int(5) not null);
+
+desc tblclientmaster;
+	
+insert into tblclientmaster values(00001,'Ruchit','Madras',780001,'Tamil Nadu',3500);
+insert into tblclientmaster values(00002,'Archit','Mumbai',400057,'Maharashtra',5000);
+insert into tblclientmaster values(00003,'Pooja','Banglore',560001,'Karnataka',7000);
+insert into tblclientmaster values(00004,'Nayan','Mumbai',400060,'Maharashtra',2000);
+insert into tblclientmaster values(00005,'Vishwa','Manglore',560050,'Karnataka',4800);
+
+select * from tblclientmaster;
+
+create table tblproductmaster(
+productno int(5) primary key,
+name varchar(15) not null,
+profit_perc int(3) default 0,
+qty_on_hand int(4) default 0,
+reorder_level int(3) not null,
+cost_price int(4) not null check(cost_price>0),
+selling_price int(4) not null check(seeling_price>0));
+
+desc tblproductmaster;
+
+insert into tblproductmaster values(10001,'T-shirt',20,200,300,250,300);
+insert into tblproductmaster values(10002,'Shirts',30,180,200,650,910);
+insert into tblproductmaster values(10003,'Cotton Jeans',40,100,200,1200,1560);
+insert into tblproductmaster values(10004,'Trousers',60,200,200,950,1520);
+insert into tblproductmaster values(10005,'Denim shirts',80,100,100,1050,1890);
+
+select * from tblproductmaster;
+
+create table salesorder(
+orderno int(5) primary key,
+orderdate date not null,
+delivery_address varchar(15) not null,
+delivery_date date not null,
+orderstatus varchar(15) default 'in process',
+clientno int(5) references tblclientmaster(clientno));
+
+desc salesorder;
+
+insert into salesorder values(19001,'2017-01-12','surat','2017-01-30','in process',00001);
+insert into salesorder values(19002,'2017-01-25','mumbai','2017-02-12','cancelled',00002);
+insert into salesorder values(19003,'2018-03-12','banglore','2018-03-22','delivered',00003);
+insert into salesorder values(19004,'2017-05-02','manglore','2017-05-20','in process',00004);
+insert into salesorder values(19005,'2018-02-14','manglore','2018-02-24','delivered',00005); 
+
+select * from salesorder;
+
+alter table tblclientmaster add column telephoneno bigint(10); #1
+
+select * from tblclientmaster; #2
+
+update tblclientmaster set telephoneno=9874563210 where clientno=00001;#2
+update tblclientmaster set telephoneno=8523697410 where clientno=00002;#2
+update tblclientmaster set telephoneno=7321654789 where clientno=00003;#2
+update tblclientmaster set telephoneno=7788996655 where clientno=00004;#2
+update tblclientmaster set telephoneno=9933111122 where clientno=00005;#2
+select * from tblclientmaster; #2
+
+select * from tblclientmaster where name like '_a%'; #3
+
+select * from tblclient where city like 'm%'; #4
+
+select * from tblclientmaster where baldue>5000; #5
+
+select c.clientno,name,orderno,orderdate,delivery_address,delivery_date,orderstatus from tblclientmaster c,salesorder o where c.clientno=o.clientno and c.clientno in(00001,00002); #6
+
+select * from tblclientmaster where state='maharashtra' and baldue>4000; #7
+
+select * from tblproductmaster where qty_on_hand<reorder_level;  #8
+
+select * from tblproductmaster where selling_price>500 and selling<=1500; #9
+
+select name,selling_price*0.5 as 'new price' from tblproductmaster; #10
+
+select name,selling_price-cost_price from tblproductmaster; #11
+
+select name,selling_price,selling_price*qty_on_hand as 'Total Price' from tblproductmaster; #12
+
+select count(*) from tblproductmaster where selling_price<1000; #13
+
+select name,city,state from tblclientmaster where city in('Banglore','Manglore'); #14
+
+select name,city,state from tblclientmaster where state not in('karnataka'); #15
+
+select * from tblproductmaster where profit_perc between 30 and 70; #16
+select * from tblproductmaster where profit_perc>30 and profit_perc<70; #16
+
+select min(selling_price)as 'Min Price',max(selling_price) as 'Max price'  from tblproductmaster; #17
+
+select avg(cost_price),avg(selling_price) from tblproductmaster; #18
+
+select sum(selling_price) from tblproductmaster; #19
+
+select count(*) from salesorder; #20
+
+select count(*) from salesorder where orderstatus='Delivered' and delivery_date>'2018-01-01' and delivery_date<'2018-05-31';#21
+
+alter table salesorder rename tblsalesorder;
+
+
+
