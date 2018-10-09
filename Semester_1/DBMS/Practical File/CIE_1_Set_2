@@ -1,0 +1,78 @@
+use utu;
+
+create table tbldepartment(
+id int(3) primary key,
+Name varchar(20) not null);
+
+insert into tbldepartment values(101,'Sales');
+insert into tbldepartment values(102,'Purchase');
+insert into tbldepartment values(103,'Accounting');
+insert into tbldepartment values(104,'Human Resource');
+insert into tbldepartment values(105,'Manufacturing');
+
+create table tblemployee(
+id int(4) primary key,
+name varchar(20) not null,
+city varchar(10) default null,
+salary int(5) not null check(salary>0),
+dept_id int(3) references tbldepartment(id));
+
+insert into tblemployee values(1001,'John','London',10000,101);
+insert into tblemployee values(1002,'Meeta','Rome',22000,102);
+insert into tblemployee values(1003,'Rahul','Surat',20000,103);
+insert into tblemployee values(1004,'Sujzen','Bombay',30000,104);
+insert into tblemployee values(1005,'jitesh','London',15000,105);
+insert into tblemployee values(1006,'Naren','Surat',40000,106);
+
+select name,city from tblemployee; #1
+
+select distinct(city) from tblemployee; #2
+
+select name from tblemployee where name like 'j%'; #q3
+
+update tblemployee set city='Mumbai' where city='bombay'; #4
+select * from tblemployee; #4
+
+alter table tblemployee add gender char(1) after city; #5
+desc tblemployee; #5
+
+update tblemployee set gender='M' where id=1001; #6
+update tblemployee set gender='F' where id=1002; #6
+update tblemployee set gender='M' where id=1003; #6
+update tblemployee set gender='F' where id=1004; #6
+update tblemployee set gender='M' where id=1005; #6
+update tblemployee set gender='M' where id=1006; #6
+select * from tblemployee; #6
+
+insert into tblemployee(id,name,gender,salary,dept_id) values(1007,'mukesh','M',45000,101); #7
+select * from tblemployee; #7
+
+alter table tblemployee change dept_id departmentid int(3); #8
+desc tblemployee; #8
+
+select * from tblemployee where city='Surat' and salary>30000; #9
+
+select name from tbldepartment order by name desc; #10
+
+select * from tblemployee where id is null or name is null or city is null or salary is null or gender is null or departmentid is null; #11
+update tblemployee set city='surat' where id=1007; #11
+
+select * from tblemployee where city not in ('surat','mumbai'); #12
+
+select * from tblemployee where city is not null; #13
+
+select count(*) from tblemployee; #14
+
+update tblemployee set salary=(salary/100)*112; #15
+select * from tblemployee; #15
+
+select * from tblemployee order by salary asc limit 5; #16
+
+select name from tblemployee where salary in(10000,20000,30000); #17
+
+delete from tblemployee where departmentid=101; #18
+
+select * from tblemployee where gender='F' and city in('Rome','London'); #19
+
+truncate tblemployee; #20
+
