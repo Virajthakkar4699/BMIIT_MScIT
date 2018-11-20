@@ -1,0 +1,74 @@
+#practical 5
+
+use UTU;
+create table tbldealer(
+dcode int(3) primary key,
+dname varchar(25) not null);
+
+insert into tbldealer values(101,'Reliable Stationers');
+insert into tbldealer values(103,'Classic plastics');
+insert into tbldealer values(102,'Clear Details');
+insert into tbldealer values(104,'Krishna Cosmetik');
+insert into tbldealer values(105,'Surbhi Collection');
+
+
+create table tblitem(
+id Varchar(6) primary key,
+name varchar(25) not null,
+manufacturer varchar(25) not null,
+price int(3) not null check(price>0),
+qty int(3) not null check(qty>0),
+stockdate date not null,
+dcode int(3) references tbldealer(dcode));
+
+insert into tblitem values('TP01','Talcom Powder','Persona',40,45,'2018-02-11',104);
+insert into tblitem values('FW05','Face Wash','Attitude',45,55,'2018-04-15',105);
+insert into tblitem values('BS01','Bath soap','persona',55,80,'2018-02-11',104);
+insert into tblitem values('SH06','Shampoo','Patanjali',12,50,'2017-01-05',105);
+insert into tblitem values('FW12','Face wash','Loreal',95,45,'2016-01-05',105);
+insert into tblitem values('S5005','Ball Pen 0.5','Natraj Classic',16,100,'2010-03-31',102);
+insert into tblitem values('S5003','Ball pen 0.25','Natraj Classic',20,150,'2010-01-01',102);
+insert into tblitem values('S5002','Gel Pen Premium','Pilot Juice',14,125,'2010-02-14',101);
+insert into tblitem values('S5006','Gel Pen Classic','Pilot Juice',22,200,'2010-01-01',101);
+insert into tblitem values('S5001','Eraser Small','Apsara',15,210,'2009-03-19',102);
+insert into tblitem values('S5004','Eraser Big','Apsara',10,60,'2009-12-12',102);
+insert into tblitem values('S5009','Sharpner Classic','Natraj Classic',18,160,'2009-01-23',103);
+
+create table tblclient(
+id int(2) primary key,
+fname varchar(20) not null,
+city varchar(20) not null,
+itemid varchar(6) references tblitem(id));
+
+insert into tblclient values(01,'Krishna','Surat','FW05');
+insert into tblclient values(06,'Nayan','Navsari','S5009');
+insert into tblclient values(12,'Aesha','Surat','SH06');
+insert into tblclient values(15,'Krunal','Navsari','S5005');
+insert into tblclient values(16,'Dhruvin','Vapi','TP01');
+insert into tblclient values(20,'Dhvani','Bardoli','BS01');
+insert into tblclient values(24,'Drashti','Valsad','FW12');
+insert into tblclient values(25,'Manan','Surat','S5003');
+
+
+select name,price from tblitem where manufacturer='Persona'; #1
+select count(distinct manufacturer) from tblitem; #2
+select * from tblclient where fname like 'Dh%'; #3
+select * from tblitem where name like '%pen%'; #4
+select name,price,qty from tblitem where price>80; #5
+select name,price from tblitem where price<=20; #6
+select * from tblitem where dcode=102 or qty>100; #7
+select * from tblitem where qty between 50,100; #8
+update table tblitem set qty=qty+10; #9
+update table tblitem set qty=qty-30; #10
+update table tblitem set price=((115*price)100); #11
+select max(price),min(price) from tblitem; #12
+select avg(price) from tblitem; #13
+select avg(price*qty) from tblitem; #14
+select concat(name,' Price is ',price) from tblitem; #15
+select concat(name,' stock date is ',stockdate) from tblitem; #16
+select * from tblclient order by itemid asc; #17
+select * from tblitem order by stockdate desc; #18
+select fname,city from tblclient where city not in('Surat','Vapi','Valsad'); #19
+select id,upper(Fname),upper(City),upper(itemid) from tblclient; #20
+select upper(name) from tblitem; #21
+
