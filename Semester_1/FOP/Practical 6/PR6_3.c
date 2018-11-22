@@ -3,17 +3,16 @@ void main()
 {
 	int array1[5];
 	int start;
-	int temp=0;
+	int value;
 	for(start=0;start<5;start++)
 	{
-		scanf("%d",&temp);
-		array1[start]=temp*temp;
+		scanf("%d",&value);
+		array1[start]=value*value;
 	}
-	printf("=================================\n");
-	printf("Printing Array\n");
-	printf("=================================\n");
+
+
 	for(start=0;start<5;start++)
 	{
 		printf("%d\n",array1[start]);
-	}
+	}	
 }
