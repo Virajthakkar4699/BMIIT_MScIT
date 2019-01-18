@@ -1,0 +1,175 @@
+#1
+create procedure print_hello1() 
+select "hello world";
+call print_hello1(); #single line statment
+-----------------------------------------------------------------------------------------
+#2
+drop procedure if exists print_customer;
+create procedure print_customer()
+select "Message 1";
+select "Message 2";
+
+call print_customer(); #multiline statement without begin/end
+-----------------------------------------------------------------------------------------
+#3
+delimiter //
+create procedure multiline()
+Begin
+select "customer name where customer id is 2001";
+select cname from customer where cnum=2001;
+end; //
+
+call multiline() // #multiline procedure with begin/end
+-----------------------------------------------------------------------------------------
+
+#2
+drop procedure if exists print_hello1 ;
+create procedure print_hello1() 
+select "hello world" as Message;
+call print_hello1(); #single line statement with drop clause
+
+-----------------------------------------------------------------------------------------
+#3
+drop procedure if exists print_hello2;
+delimiter //
+create procedure print_hello2()
+Begin
+select "Hello World" as message1;
+select "This is my first Procedure" as message2;
+end //
+delimiter ;
+call print_hello2() ; #multiline statement with bgin/end
+
+-----------------------------------------------------------------------------------------
+
+Question
+write a procedure print_value that will print the value of give variables which are as
+follows n1=10,n2=10.05 and name=bmiit 
+
+drop procedure if exists test;
+delimiter //
+create procedure test()
+begin
+	declare n1 int(3);
+	declare n2 decimal(9,2);
+	declare n3 decimal(9,2);
+
+	set n1=10;
+	set n2=20.05;
+	set n3=30;
+
+	select n1;
+	select n2;
+	select n3;
+
+	if n1>n2 && n1>n3 then
+		select 'n1 IS greater';
+	elseif n2>n1 && n2>n3 then 
+		select 'n2 as greater';
+	else 
+		select 'n3 is greater';
+	end if;
+end //
+
+delimiter ;
+
+call test;
+
+---------------------------------------------------------------------------------------------
+question
+===================
+use UTU;
+
+create table emp(
+id int(4) primary key,
+name varchar(20) not null,
+salary int(6) not null);
+
+insert into emp values(2001,'Viraj',40000);
+insert into emp values(2002,'Pranjal',50000);
+insert into emp values(2003,'jiya',6000);
+insert into emp values(2004,'prajay',25000);
+insert into emp values(2005,'heet',30000);
+
+select * from emp;
+
+drop procedure if exists p_upsal;
+delimiter //
+create procedure p_upsal(in pid int)
+begin
+	declare v_salary int;
+	select salary into v_salary from emp where id=pid;
+	if (v_salary>=40000) then
+		update emp set salary=salary+1000 where id=pid;
+	end if;
+end//
+
+delimiter ;
+
+call p_upsal(2001);
+
+---------------------------------------------------------------------------------------------
+question
+===================
+drop procedure if exists p_upsal;
+delimiter //
+create procedure p_upsal(in pid int)
+begin
+	declare v_salary int;
+	select salary into v_salary from emp where id=pid;
+	if (v_salary>=40000) then
+		update emp set salary=salary+1000 where id=pid;
+	end if;
+end//
+
+delimiter ;
+
+set @n1=2001;
+
+call p_upsal(@n1);
+
+---------------------------------------------------------------------------------------------
+question
+===================
+
+use UTU;
+create table sales(
+id int(4) primary key,
+name varchar(20) not null,
+salesamt int(6) not null);
+
+insert into sales values(2001,'Viraj',10000);
+insert into sales values(2002,'Pranjal',5000);
+insert into sales values(2003,'jiya',16000);
+insert into sales values(2004,'prajay',25000);
+insert into sales values(2005,'heet',3000);
+
+drop procedure if exists p_bonus;
+delimiter //
+create procedure p_bonus(in pid int)
+begin
+	declare v_salesamt int;
+	declare v_bonus int;
+	
+	select sum(amount) into v_salesamt from orders where snum=pid;
+		if (v_salesamt<10000) then
+			set v_bonus=1000;
+		elseif (v_salesamt >= 10000 && v_salesamt<20000) then
+			 set v_bonus=3000;
+		elseif (v_salesamt>=20000) then
+			set v_bonus=4000;
+		else 
+			set v_bonus=0;
+		end if;
+	
+	select v_bonus;
+end//
+
+delimiter ;
+
+call p_bonus(1001);
+
+
+orders table
+salesid
+
