@@ -1,0 +1,84 @@
+#SQL
+#Practical List-1/2
+
+#PR_2
+
+#Q1
+drop procedure if exists P_MSG;
+create procedure P_MSG()
+Select "Hello World";
+call P_MSG();
+
+#Q2
+delimiter //
+create procedure P_MSG()
+Begin
+select "Hello World";
+select "My First STored Procedure";
+end //
+delimiter ;
+call P_MSG(); 
+
+//select "Hello World" as "My first";
+
+#Q3
+drop procedure if exists P_VAR;
+delimiter //
+create procedure P_VAR()
+begin
+declare V_Enrollment int(4);
+declare v_Registration bigint;
+declare V_Std_Name char(4);
+declare V_Gender char(1);
+declare V_Course char(6);
+declare V_DOB date;
+declare V_Percentage decimal(4,2);
+
+set V_Enrollment=1001;
+set v_Registration=20180000001000001;
+set V_Std_Name="Ajay";
+set V_Gender="M";
+set V_Course="MSC IT";
+set V_DOB="2001-01-01";
+set V_Percentage=79.50;
+
+select V_Enrollment;
+select v_Registration;
+select V_Std_Name;
+select V_Gender;
+select V_Course;
+select V_DOB;
+select V_Percentage;
+end //
+delimiter ;
+call P_VAR();
+
+#Q4
+DROP PROCEDURE IF EXISTS P_CNUM;
+DELIMITER //
+CREATE PROCEDURE P_CNUM()
+BEGIN
+DECLARE V_CNAME VARCHAR(25);
+DECLARE V_CNUM INT(6);
+SELECT CNAME, CNUM INTO V_CNAME, V_CNUM FROM
+CUSTOMER WHERE CNUM =2001;
+SELECT V_CNAME AS C_NAME, V_CNUM AS C_NUM;
+END //
+DELIMITER ;
+CALL P_CNUM();
+
+#OUTPUT (LEFT)
+
+#Q4
+DROP PROCEDURE IF EXISTS P_ORDER;
+DELIMITER //
+CREATE PROCEDURE P_ORDER()
+BEGIN
+DECLARE V_CNUM VARCHAR(25);
+DECLARE V_OAmount INT(6);
+select max(amount),cnum into V_OAmount,V_CNUM from orders;
+#select max(amount),cnum from orders group by cnum;
+select V_OAmount as Order_Amount,V_CNUM as Customer_Name;
+end //
+delimiter ;
+call P_ORDER;

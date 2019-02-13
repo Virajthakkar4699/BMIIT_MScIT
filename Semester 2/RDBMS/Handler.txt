@@ -1,0 +1,45 @@
+drop procedure if exists P_Cursor; 
+delimiter //
+create procedure P_Cursor()
+Begin
+Declare V_sname varchar(30);
+declare Row_Finished Boolean default 0;
+declare cursor_sname cursor 
+for select sname from salesman;
+declare exit handler for not found set row_finished=1;
+
+#declare continue handler for not found set row_finished=1;
+
+open cursor_sname;
+
+label1: loop
+	fetch cursor_sname into v_sname;
+	select V_SNAME;
+	
+	if row_finished=1 then
+		leave label1;
+	end if;
+	end loop label1;
+close cursor_sname;
+end //
+delimiter ;
+
+call P_Cursor();
+
+----------------------------------------------------
+delimiter //
+CREATE PROCEDURE sp_fetch_forever( )
+BEGIN
+DECLARE v_sname varchar(20);
+DECLARE c_sname CURSOR FOR
+SELECT sname
+FROM salesman;
+OPEN c_sname;
+dept_cursor: LOOP
+FETCH c_sname INTO v_sname;
+END LOOP dept_cursor;
+CLOSE c_sname;
+END //
+delimiter ;
+
+CALL sp_fetch_forever( );
