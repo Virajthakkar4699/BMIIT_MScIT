@@ -1,0 +1,97 @@
+create database UTU;
+use UTU;
+
+create table salesman(
+snum int(4) primary key,
+sname varchar(20) not null,
+city varchar(15) not null,
+commision int(4) not null check(commission>0));
+
+insert into salesman values(1001,'Piyush','London',12);
+insert into salesman values(1002,'Niraj','Surat',13);
+insert into salesman values(1003,'Miti','London',11);
+insert into salesman values(1004,'Rajesh','Baroda',15);
+insert into salesman values(1005,'Anand','New Delhi',10);
+insert into salesman values(1006,'Ram','Patan',10);
+insert into salesman values(1007,'Laxman','Bombay',9);
+
+create table customer(
+cnum int(4) primary key,
+cname varchar(20) not null,
+city varchar(15) not null,
+rating int(3) check(rating>0),
+snum int(4) references salesman(snum));
+
+insert into customer values(2001,'Hardik','London',100,1001);
+insert into customer values(2002,'Gita','Rome',200,1003);
+insert into customer values(2003,'Laxit','Surat',200,1002);
+insert into customer values(2004,'Govind','Bombay',300,1002);
+insert into customer values(2005,'Chandu','London',100,1001);
+insert into customer values(2006,'Champak','Surat',300,1007);
+insert into customer values(2007,'Pratik','Rome',100,1004);
+
+create table orders(
+onum int(4) primary key,
+amount decimal(8,2) not null check(amount>0),
+odate date not null,
+cnum int(4) references customer(cnum),
+snum int(4) references salesman(snum));
+
+insert into orders values(3001,18.69,'1999-03-10',2007,1007);
+insert into orders values(3002,767.19,'1999-03-10',2001,1001);
+insert into orders values(3003,1900.10,'1999-03-10',2007,1004);
+insert into orders values(3004,5160.45,'1999-03-10',2003,1002);
+insert into orders values(3005,1098.25,'1999-04-10',2008,1007);
+insert into orders values(3006,1713.12,'1999-04-10',2002,1003);
+insert into orders values(3007,75.75,'1999-05-10',2004,1002);
+insert into orders values(3008,4723.00,'1999-05-10',2006,1001);
+insert into orders values(3009,1309.95,'1999-05-10',2004,1002);
+insert into orders values(3010,9898.87,'1999-05-10',2006,1001);
+
+drop procedure if exists P_MSG;
+create procedure P_MSG() #Q1
+select "hello world";  #will Print the message
+call P_MSG(); #will call the function
+
+
+drop procedure if exists P_MSG;
+delimiter //
+create procedure P_MSG()
+Begin
+select "Hello World"; # Message1
+select "My First Stored Procedure"; # Message2
+End//
+delimiter ;
+call P_MSG();#will call the function
+
+drop procedure if exists P_VAR;
+delimiter //
+create procedure P_VAR()
+begin
+	declare V_Enrollment_No int(4);
+	declare V_RESIGNATION_NO bigint(20);
+	declare V_STD_NAME varchar(15);
+	declare V_GENDER char(1);
+	declare V_COURSE varchar(10);
+	declare V_DOB date;
+	declare V_PERCENTAGE decimal(4,2);
+
+	set V_Enrollment_No=1001;
+	set V_RESIGNATION_NO=20180000001000001;
+	set V_STD_NAME="Ajay";
+	set V_GENDER ="M";
+	set V_COURSE ="MSC IT";
+	set V_DOB ="2001-01-01";
+	set V_PERCENTAGE =79.50;
+
+	select V_Enrollment_No;
+	select V_RESIGNATION_NO;
+	select V_STD_NAME;
+	select V_GENDER ;
+	select V_COURSE ;
+	select V_DOB;
+	select V_PERCENTAGE;
+end //
+delimiter ;
+call P_VAR();
+
