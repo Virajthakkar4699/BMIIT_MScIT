@@ -1,0 +1,93 @@
+/*consider following tables 
+1.Sales
+-Salesid
+-Productid
+-customerid
+-Salesqty
+
+2.Saleslog
+-customerid
+-productid
+-salesqty
+create a trigger t_saleslog that will that will maintain a log of sales.
+Trigger Time:- After
+Trigger event :- Insert on sales
+TRigger Action :- Insert on saleslog.
+*/
+
+
+
+use UTU;
+
+create table sales(
+salesid int(3) primary key,
+productid int(3) not null,
+customerid int(3) not null,
+salesqty int(4) not null);
+
+insert into sales values(101,201,301,500);
+insert into sales values(102,202,302,400);
+insert into sales values(103,203,303,300);
+insert into sales values(104,204,304,400);
+
+create table saleslog(
+productid int(3) not null,
+customerid int(3) not null,
+salesqty int(4) not null);
+
+create Trigger T_Saleslog
+after insert on sales
+for each row 
+	insert into saleslog values (new.productid,new.customerid,new.salesqty);
+
+#--------------------------------------------------------------------------------------------------------------------
+/*sales2(product_id,s_quantity)
+stock(product_id,stock_quantity)
+
+t_sales that will update stock quantity from stock tables when a product is sold.
+*/
+
+create table sales2(
+product_id int(3) primary key,
+s_quantity int(3) not null);
+
+create table stock(
+product_id int(3) primary key,
+stock_quantity int(3) not null);
+
+insert into stock values(101,500);
+insert into stock values(102,600);
+insert into stock values(103,700);
+
+
+create Trigger T_sales
+after insert on sales2
+for each row 
+	update stock set stock_quantity=stock_quantity-new.s_quantity where product_id=new.product_id;
+
+
+insert into sales2 values(101,50); #test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
