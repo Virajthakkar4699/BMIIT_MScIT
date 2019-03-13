@@ -68,26 +68,36 @@ for each row
 
 insert into sales2 values(101,50); #test
 
+#------------------------------------------------------------------------------------------------------------------
 
+create table reservation(
+srno int(3) primary key,
+name varchar(15) not null);
 
+drop Trigger T_res;
 
+delimiter //
+create Trigger T_res
+before insert on reservation
+for each row
+begin
+	declare dummy int(1);
+	declare rowcount int(3);
+	
+	select count(*) into rowcount from reservation;
+	
+	if rowcount>=5 then
+		SIGNAL SQLSTATE '45000'
+  		SET MESSAGE_TEXT = 'Record Insertion Above Limit';
+        end if; 	
+			
+end //
+delimiter ;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+insert into reservation values(1,'Viraj');
+insert into reservation values(2,'Jiya');
+insert into reservation values(3,'Pranjal');
+insert into reservation values(4,'Heet');
+insert into reservation values(5,'Rushabh');
+	
+insert into reservation values(6,'Prajay'); #Test

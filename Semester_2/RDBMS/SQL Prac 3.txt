@@ -1,0 +1,89 @@
+#Practical List 3
+
+
+use UTU;
+
+create table salesman(
+snum int(4) primary key,
+sname varchar(20) not null,
+city varchar(15) not null,
+commision int(4) not null check(commission>0));
+
+insert into salesman values(1001,'Piyush','London',12);
+insert into salesman values(1002,'Niraj','Surat',13);
+insert into salesman values(1003,'Miti','London',11);
+insert into salesman values(1004,'Rajesh','Baroda',15);
+insert into salesman values(1005,'Anand','New Delhi',10);
+insert into salesman values(1006,'Ram','Patan',10);
+insert into salesman values(1007,'Laxman','Bombay',9);
+
+create table customer(
+cnum int(4) primary key,
+cname varchar(20) not null,
+city varchar(15) not null,
+rating int(3) check(rating>0),
+snum int(4) references salesman(snum));
+
+insert into customer values(2001,'Hardik','London',100,1001);
+insert into customer values(2002,'Gita','Rome',200,1003);
+insert into customer values(2003,'Laxit','Surat',200,1002);
+insert into customer values(2004,'Govind','Bombay',300,1002);
+insert into customer values(2005,'Chandu','London',100,1001);
+insert into customer values(2006,'Champak','Surat',300,1007);
+insert into customer values(2007,'Pratik','Rome',100,1004);
+
+create table orders(
+onum int(4) primary key,
+amount decimal(8,2) not null check(amount>0),
+odate date not null,
+cnum int(4) references customer(cnum),
+snum int(4) references salesman(snum));
+
+insert into orders values(3001,18.69,'1999-03-10',2007,1007);
+insert into orders values(3002,767.19,'1999-03-10',2001,1001);
+insert into orders values(3003,1900.10,'1999-03-10',2007,1004);
+insert into orders values(3004,5160.45,'1999-03-10',2003,1002);
+insert into orders values(3005,1098.25,'1999-04-10',2008,1007);
+insert into orders values(3006,1713.12,'1999-04-10',2002,1003);
+insert into orders values(3007,75.75,'1999-05-10',2004,1002);
+insert into orders values(3008,4723.00,'1999-05-10',2006,1001);
+insert into orders values(3009,1309.95,'1999-05-10',2004,1002);
+insert into orders values(3010,9898.87,'1999-05-10',2006,1001);
+
+
+
+#Question1
+
+drop function p_cnum;
+delimiter //
+create function p_cnum(s_cid int(4))
+returns varchar(20)
+begin
+	declare v_cname varchar(15);
+	select cname into v_cname from customer where cnum=s_cid;
+	return v_cname;
+end//
+delimiter ;
+
+#--------------------------------------------------------------------------
+
+#Question2
+
+drop function p_order;
+delimiter //
+create function p_order()
+returns varchar(100)
+begin
+	declare v_amount decimal(8,2);
+	declare v_cnum int(4);
+	select (sum(amount)),cnum into v_amount,v_cnum from orders group by cnum order by (sum(amount)) desc limit 1;
+	
+	return concat("Customer Number",v_cnum," Has placed the order of highest amount.");
+end//
+delimiter ;
+
+#---------------------------------------------------------------------------
+
+#Question3
+
+
