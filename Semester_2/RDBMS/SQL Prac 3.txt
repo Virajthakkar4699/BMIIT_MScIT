@@ -85,5 +85,88 @@ delimiter ;
 #---------------------------------------------------------------------------
 
 #Question3
+/*
+//drop function p_increment;
+
+//create function p_increment(vcnum int)
+//returns int(4)
+//	return select rating+150 from customer where cnum=vcnum;
+*/
+
+
+delimiter //
+create function p_increment(vcnum int)
+returns int(4)
+begin
+	declare v_rat int(3);
+	select rating+150 as 'Increased Rating' into v_rat from customer where cnum=vcnum;
+ 	return v_rat;
+end//
+delimiter ;
+
+delimiter //
+create function p_update(vcnum int)
+returns varchar(50)
+begin
+	update customer set rating=rating+150 where cnum=vcnum;
+	return 'Values Updated';
+end//
+delimiter ;
+
+#---------------------------------------------------------------------------
+
+#question 4
+
+drop function p_grade;
+delimiter //
+create function p_grade(vcnum int)
+returns varchar(50)
+begin
+	declare v_rat int(3);
+	select rating into v_rat from customer where cnum=vcnum;
+
+	case v_rat
+	when 100 then
+		return "Poor";
+	when 200 then
+		return "Good";
+	when 300 then
+		return "Excellent";
+	else
+		return "No Grade";
+	end case;
+end //
+delimiter ;
+
+drop procedure p_pr;
+create procedure p_pr(in v_cnum int)
+	select p_grade(v_cnum);
+
+#---------------------------------------------------------------------------
+
+#question5
+
+drop function p_grade;
+delimiter //
+create function p_grade(vcnum int)
+returns varchar(50)
+begin 
+	declare v_rat int(3);
+	select rating into v_rat from customer where cnum=vcnum;
+	
+	if(v_rat=100) then
+		return 'Poor';
+	elseif(v_rat=200) then
+		return 'Good';
+	elseif(v_rat=300) then
+		return 'Excellent';
+	else
+		return 'No Grade';
+	end if;
+end //
+delimiter ;
+
+
+
 
 

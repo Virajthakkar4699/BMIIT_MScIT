@@ -1,0 +1,65 @@
+#Practical 4 Experiment 5
+
+create table student(
+en_no int primary key,
+name varchar(30) not null,
+course varchar(20) not null,
+sem int not null);
+
+
+insert into student values(2001,"ajay","mscit",2);
+insert into student values(2002,"vijay","mscit",2);
+insert into student values(2003,"nilam","mscit",2);
+insert into student values(4001,"neha","mca",4);
+insert into student values(4002,"vinay","mca",4);
+insert into student values(4003,"nilam","mca",4);
+insert into student values(4004,"shivam","mca",4);
+
+
+create table exam(
+en_no int references student(en_no),
+seat_no int primary key,
+result int not null);
+
+
+insert into exam values(2001,9001,00);
+insert into exam values(2002,9002,00);
+insert into exam values(2003,9003,00);
+insert into exam values(4001,9004,00);
+insert into exam values(4002,9005,00);
+insert into exam values(4003,9006,00);
+
+
+create table subject(
+subject_code int primary key,
+subject_name varchar(20) not null,
+total_marks int not null);
+
+
+insert into subject values(208,"oop",100);
+insert into subject values(209,"rdbms",100);
+insert into subject values(210,"de",100);
+insert into subject values(401,"java",100);
+insert into subject values(402,"asp",100);
+
+
+create table marks(
+seat_no int references exam(seat_no),
+subject_code int references subject(subject_code),
+marks_obtained int not null);
+
+
+insert into marks values(9001,208,100);
+insert into marks values(9001,209,80);
+insert into marks values(9001,210,90);
+insert into marks values(9002,208,100);
+insert into marks values(9002,209,90);
+insert into marks values(9002,210,30);
+insert into marks values(9003,208,30);
+insert into marks values(9003,209,40);
+insert into marks values(9003,210,30);
+insert into marks values(9004,401,80);
+insert into marks values(9004,402,70);
+insert into marks values(9005,401,60);
+insert into marks values(9005,402,50);
+insert into marks values(9006,401,50);
