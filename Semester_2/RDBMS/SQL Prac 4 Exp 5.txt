@@ -63,3 +63,31 @@ insert into marks values(9004,402,70);
 insert into marks values(9005,401,60);
 insert into marks values(9005,402,50);
 insert into marks values(9006,401,50);
+
+drop procedure p_students;admin
+
+delimiter //
+create procedure p_students
+declare ven_no int(4);
+declare vname varchar(10);
+declare vcourse Varchar(5);
+declare vsem int(1);
+
+declare cursor c_details for select * from student 
+declare exit handler for not found set row_finished=1;
+
+open cursor_c_details
+
+label1: loop
+	fetech c_details
+
+
+
+
+
+
+
+
+
+
+
