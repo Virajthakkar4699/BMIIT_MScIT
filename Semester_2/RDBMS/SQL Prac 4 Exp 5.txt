@@ -63,23 +63,53 @@ insert into marks values(9004,402,70);
 insert into marks values(9005,401,60);
 insert into marks values(9005,402,50);
 insert into marks values(9006,401,50);
-
-drop procedure p_students;admin
+-----------------------------------------------------------------------------------
+drop procedure p_students;
 
 delimiter //
-create procedure p_students
-declare ven_no int(4);
-declare vname varchar(10);
-declare vcourse Varchar(5);
-declare vsem int(1);
+create procedure p_students()
+begin
+	declare ven_no int(4);
+	declare vname varchar(10);
+	declare vcourse varchar(5);
+	declare vsem int(1);
+	declare row_finished boolean default 0;
+	declare i int;
+	declare c_details cursor for select * from student ;
+	declare exit handler for not found set row_finished=1;
+open c_details;
+set i=0;
+label1: loop	
+	fetch c_details into ven_no,vname,vcourse,vsem;
+	select ven_no,vname,vcourse,vsem;
+	set i=i+1;
+	if row_finished=1 then
+		leave label1;
+	end if;
 
-declare cursor c_details for select * from student 
-declare exit handler for not found set row_finished=1;
+end loop label1;
+close c_details;
+end //
+delimiter ;
 
-open cursor_c_details
+--------------------------------------------------------------------------------------
 
-label1: loop
-	fetech c_details
+	declare cursor c_details for select * from student 
+	declare exit handler for not found set row_finished=1;
+
+open cursor_c_details;
+
+set i=0;
+label1: loop	
+	fetech c_details into ven_no,vname,vcourse,vsem;
+	select ven_no,vname,vcourse,vsem;
+	set i=i+1;
+	
+	if row_finished=1 then
+		leave label1;
+	end if;
+close c_details;
+
 
 
 

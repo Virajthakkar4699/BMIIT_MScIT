@@ -3,11 +3,11 @@ using namespace std;
 
 class student
 {
-	public:
 	int enro;
 	char name[20];
 	float perc;
 	char grade;
+	public:
 	
 		void getdetails()
 		{
