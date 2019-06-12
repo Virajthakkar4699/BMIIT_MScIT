@@ -1,0 +1,58 @@
+create database UTU;
+
+create table entrance_test_centre(
+EITD int(4) primary key,
+CLIENT_ID int(4) not null,
+ETNAME varchar(15) not null,
+MAX_CAPACITY int(5) not null,
+MIN_CAPACITY int(5) not null);
+
+drop trigger t_cap;
+delimiter //
+create trigger t_cap
+before insert on entrance_test_centre
+for each row
+begin
+	if (new.min_capacity<100) then
+		SIGNAL SQLSTATE '45000'
+  		SET MESSAGE_TEXT = 'Viraj Thakkar';
+	end if;
+end //
+delimiter ;
+
+insert into entrance_test_centre values(001,002,'Viraj',500,90);
+
+
++-
+
+create table employee(
+EMPNO int (4),
+ENAME varchar(15),
+JOB varchar(15),
+SAL int(6),
+COMMISSION int(6));
+
+drop trigger t_comm;
+delimiter //
+create trigger t_comm
+before insert on employee
+for each row
+begin
+declare v_comm int;
+
+	if new.sal<5000 then
+	set v_comm=new.sal*0.5;
+	
+	elseif new.sal<10000 then
+		set v_comm=new.sal*0.10;
+	elseif new.sal<15000 then
+		set v_comm=new.sal*0.15;
+	else
+		set v_comm=new.sal*.20;
+	end if;
+set new.commission=v_comm ; 
+end //
+delimiter ;
+
+
+insert into employee(empno,ename,job,sal) values(102,'Abhay','Manager',10000);

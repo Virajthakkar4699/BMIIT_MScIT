@@ -1,0 +1,79 @@
+
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+class company
+{
+	protected:
+		int mid;
+		string name;
+		string address;
+		int contact;
+	public:
+};
+
+class model:public company
+{
+	protected:
+		int modelid;
+		string modelname;
+		int price;
+	public:
+};
+
+class stock:public model
+{
+	protected:
+		int modelqty;
+		int amount;
+	public:
+		void purchase()
+		{
+			 amount=price*modelqty;
+			cout<<"Enter Manufracture ID:";
+			cin>>mid;
+			cout<<"Enter Company Name:";
+			cin>>name;
+			cout<<"Enter Company Address:";
+			cin>>address;
+			cout<<"Enter Contact Number:";
+			cin>>contact;
+			cout<<"Enter Model ID:";
+			cin>>mid;
+			cout<<"Enter Model Name:";
+			cin>>modelname;
+			cout<<"Enter Model Price:";
+			cin>>price;	 		
+		}
+};
+
+class customer
+{
+	protected:
+		int custid;
+		string custname;
+		string custadd;
+		int contact;
+		string emailid;
+	public:
+};
+
+class sales:public customer,public stock
+{
+	protected:
+		int salesid;
+		int custid;
+		int amount;
+	public:
+};
+
+int main()
+{
+	void getdata()
+		{
+			cout<<"----------------------------------------------------------------"<<endl;
+			cout<<"-           Car Showroom Management System          -"<<endl;
+			cout<<"----------------------------------------------------------------"<<endl;
+		}
+}
