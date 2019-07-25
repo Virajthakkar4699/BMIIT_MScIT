@@ -1,0 +1,75 @@
+CSS Syntax and selectors
+
+Synatx
+
+h1  {color:blue;font-size:12px}
+
+h1: Selector
+color: property
+blue: value
+; : differentiator.
+
+
+example
+p {color:red;text-align;}
+
+** CSS Selectors.
+CSS SElectors are used to find or select HTML Components based on their element name,id,attribute and more.
+
+THE ELEMENT SELECTOR.
+--> example
+p {color:red;text-align;}
+
+** THE ID SELECTOR **
+the style rule below will be applied to the HTML element with ID='para1':
+--> example
+#para1 {
+text-align: center;
+color: red;
+}
+
+** THE CLASS SELECTOR **
+IN This example all HTML Elements with class='center' will be red and center
+--> Example
+.center {
+text-align: center;
+color: red;
+}
+
+--> Example
+p.center { //only P tag and center class
+text-align: center;
+color: red;
+}
+
+** The GROUPING SELECTOR **
+--> EXAMPLE
+H1,H2,P{
+text-align: center;
+color: red;
+
+CSS Comments
+/*  --........--........-- */
+}
+
+** THREE WAYS TO INSERT CSS **
+1) External Style Sheet
+2) Internal Style Sheet
+3) INline Style
+
+
+---External Style Sheet----
+<head>
+<link rel="stylesheet" type="text\css" href=""mystyle.css>
+</head>
+
+CSS Backgrounds Properties
+1)background-color
+2)background-image
+3)Background-repeat
+4)background-attachment
+5)background-position
+
+
+Position
+-- background-position: right top;

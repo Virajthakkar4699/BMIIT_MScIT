@@ -1,0 +1,30 @@
+body{
+	background-color:lightblue;
+	background-image:url("http://utu.ac.in/bmiit/images/BMIIT-Header-1.jpg");
+	background-repeat:no-repeat;
+	background-position: left top;
+	background-attachment:scroll;
+	border-style: dotted; 
+	/* repeat-x
+	repeat-x */
+	/*filter:blur(10px);
+	-webkit-filter:blur(10px);
+	background-position: right top;
+	background-position: bottom
+	background-attachment:scroll;
+	border-style: dashed;
+	border-style: solid;
+	border-style: double;
+	border-style: groove;
+	border-style: ridge;
+	border-style: inset;
+	border-style: outset;
+	border-style: none;
+	border-style: hidden;
+	border-style: dotted;*/
+}
+
+h1{
+color:red;
+margin-left:20px;
+}
