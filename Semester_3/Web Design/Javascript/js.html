@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction() {
+  document.getElementById("demo1").innerHTML = "Paragraph changed. Viraj Thakkar";
+}
+</script>
+</head>
+</head>
+<body>
+
+<h2>My First JavaScript</h2>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p>--------------------------------------------------------</p>
+
+<p id="demo"></p>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p>JavaScript can change HTML attribute values.</p>
+
+<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+
+<img id="myImage" src="pic_bulboff.gif" style="width:100px">
+
+<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+
+<p>--------------------------------------------------------</p>
+<h1>A Web Page</h1>
+<p id="demo1">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p>--------------------------------------------------------</p>
+
+
+<h2>JavaScript Variables</h2>
+
+<p>In this example, x, y, and z are variables.</p>
+
+<p id="demo3"></p>
+<p id="demo4"></p>
+
+<script>
+var x = 6;
+var y = 6;
+var z = x + y;
+document.getElementById("demo3").innerHTML =
+"The value of z is: " + z;
+
+var a = x * y;
+document.getElementById("demo4").innerHTML =
+"The value of z is: " + a;
+
+window.alert(5 + 6);
+console.log(5 + 6);
+document.write(5 + 6);
+
+var Fname = "Viraj";
+var Lname = "Thakkar";
+window.alert(Fname+" "+Lname);
+
+</script>
+
+<p>--------------------------------------------------------</p>
+<h2>Validate Form</h2>
+
+<script>
+function validateform() {
+	var abc = document.forms["myForm"]["name"].value;
+	if(abc=="")
+	{
+	alert("Name Must be filled");
+	return false;
+	}
+}
+</script>
+
+
+
+<form name="myForm" action="#" onsubmit="return validateform()" method="post">
+Name: <input type="text" name="name">
+	<input type="submit" value="Submit">
+
+<p>--------------------------------------------------------</p>
+<h2>Input Data and Display</h2>
+
+<script>
+function inputform() {
+	var xyz = document.forms["myForm1"]["User"].value;
+	var vyz = document.forms["myForm1"]["Pass"].value;
+	if(xyz=="" && vyz=="")
+	{
+	alert("Details Must be filled");
+	return false;
+	}
+	else
+	{
+	window.alert("User: "+ xyz+ " "+ "Pass :"+ vyz);		
+	}
+}
+</script>
+
+<form name="myForm1" action="#" onsubmit="return inputform()" method="post">
+User: <input type="text" name="User">
+Pass: <input type="text" name="pass">
+	<input type="submit" value="Submit">
+
+
+</body>
+</html>
