@@ -1,5 +1,0 @@
-C:\Users\sai\Desktop\201806100110094\Firstprogram\Firstprogram\bin\Debug\Firstprogram.exe
-C:\Users\sai\Desktop\201806100110094\Firstprogram\Firstprogram\bin\Debug\Firstprogram.pdb
-C:\Users\sai\Desktop\201806100110094\Firstprogram\Firstprogram\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\sai\Desktop\201806100110094\Firstprogram\Firstprogram\obj\x86\Debug\Firstprogram.exe
-C:\Users\sai\Desktop\201806100110094\Firstprogram\Firstprogram\obj\x86\Debug\Firstprogram.pdb

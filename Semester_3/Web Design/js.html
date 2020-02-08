@@ -1,0 +1,392 @@
+<!-->-----------------------------Js.html------------------------------<!-->
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction() {
+  document.getElementById("demo1").innerHTML = "Paragraph changed. ABC ABC";
+}
+
+function myname()
+{
+	var x=document.forms["myForm"]["name"].value;
+	var pass=document.forms["myForm"]["pswd"].value;
+	if(x="parth" && pass=="4911")
+	{
+		window.open("from3.html")
+	}
+	else
+	{
+		alert("Invalid Username/Password");
+	}
+}
+</script>
+</script>
+</head>
+</head>
+<body>
+
+<h2>My First JavaScript</h2>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+
+<p id="demo"></p>
+
+
+
+<h2>What Can JavaScript Do?</h2>
+
+<p>JavaScript can change HTML attribute values.</p>
+
+<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+
+<img id="myImage" src="pic_bulboff.gif" style="width:100px">
+
+<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+
+<p>--------------------------------------------------------</p>
+<h1>A Web Page</h1>
+<p id="demo1">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p>--------------------------------------------------------</p>
+
+
+<h2>JavaScript Variables</h2>
+
+<p>In this example, x, y, and z are variables.</p>
+
+<p id="demo3"></p>
+<p id="demo4"></p>
+
+<script>
+var x = 6;
+var y = 6;
+var z = x + y;
+document.getElementById("demo3").innerHTML =
+"The value of z is: " + z;
+
+var a = x * y;
+document.getElementById("demo4").innerHTML =
+"The value of z is: " + a;
+
+window.alert(10 + 6);
+console.log(5 + 6);
+document.write(5 + 6);
+document.write(10 + 10);
+
+var Fname = "ABC";
+var Lname = "ABC";
+window.alert(Fname+" "+Lname);
+
+</script>
+
+<p>--------------------------------------------------------</p>
+<h2>Validate Form</h2>
+
+<script>
+function validateform() {
+	var abc = document.forms["myForm"]["name"].value;
+	if(abc=="")
+	{
+	alert("Name Must be filled");
+	return false;
+	}
+}
+</script>
+
+
+
+<form name="myForm" action="#" onsubmit="return validateform()" method="post">
+Name: <input type="text" name="name">
+	<input type="submit" value="Submit">
+
+<p>--------------------------------------------------------</p>
+<h2>Input Data and Display</h2>
+
+<script>
+function inputform() {
+	var xyz = document.forms["myForm1"]["User"].value;
+	var vyz = document.forms["myForm1"]["Pass"].value;
+	if(xyz=="" && vyz=="")
+	{
+	alert("Details Must be filled");
+	return false;
+	}
+	else
+	{
+	window.alert("User: "+ xyz+ " "+ "Pass :"+ vyz);		
+	}
+}
+</script>
+
+<form name="myForm1" action="#" onsubmit="return inputform()" method="post">
+User: <input type="text" name="User">
+Pass: <input type="text" name="pass">
+	<input type="submit" value="Submit">
+</form>
+
+<p>--------------------------------------------------------</p>
+
+<form name="myForm" action="#" onsubmit="return myname()" method="post">
+	Username: <input type="text" name="name"><br><br>
+	Password: <input type="password" name="pswd"><br><br>
+
+	Hint:<br>
+		Enter XYZ in Username<br>
+		Enter XYZ123 in Password<br>
+	Other will give error<br><br>
+	<input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>
+
+<!-->-----------------------------Home.html------------------------------<!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Book Mania</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="home.html">Home</a></li>
+      <li class="active"><a href="childbook.html">Children's Book</a></li>
+      <li class="active"><a href="Schoolbook.html">School Book</a></li>
+      <li class="active"><a href="Publishers.html">Publisher</a></li>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="Registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="Login Form.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="1.jpg" alt="Image 1" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="2.jpg" alt="Image 2" style="width:100%;">
+      </div>
+    
+      <div class="item">
+        <img src="3.jpg" alt="Image 3" style="width:100%;">
+      </div>
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div> 
+<div class="container">                
+  <ul class="pager">
+    <li><a href="Five.html">Previous</a></li>
+    <li><a href="Six.html">Next</a></li>
+  </ul>
+</div>
+<footer class="footer" style="background-color: #ADD8E6;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br/>
+                	
+                		<ul>
+                		<li class="active"><a href="home.html">Home</a></li>
+      				<li class="active"><a href="childbook.html">Children's Book</a></li>
+      				<li class="active"><a href="Schoolbook.html">School Book</a></li>
+      				<li class="active"><a href="Publishers.html">Publisher</a></li>
+                		</ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</body>
+</html>
+
+<!-->-----------------------------Login.html------------------------------<!-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="Home.html">Book Mania</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="home.html">Home</a></li>
+      <li class="active"><a href="childbook.html">Children's Book</a></li>
+      <li class="active"><a href="Schoolbook.html">School Book</a></li>
+      <li class="active"><a href="Publishers.html">Publisher</a></li>
+      <li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="Registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="Login Form.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+	
+  </div>
+</nav>
+  
+
+ <h2>Please Login to continue</h2>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <div class="col-sm-10">          
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+
+<footer class="footer" style="background-color: #ADD8E6;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br/>
+				                		<ul>
+                		<li class="active"><a href="home.html">Home</a></li>
+      				<li class="active"><a href="childbook.html">Children's Book</a></li>
+      				<li class="active"><a href="Schoolbook.html">School Book</a></li>
+      				<li class="active"><a href="Publishers.html">Publisher</a></li>
+                		</ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</body>
+</html>
+<!-->-----------------------------CSS------------------------------<!-->
+CSS Syntax and selectors
+
+Synatx
+
+h1  {color:blue;font-size:12px}
+
+h1: Selector
+color: property
+blue: value
+; : differentiator.
+
+
+example
+p {color:red;text-align;}
+
+** CSS Selectors.
+CSS SElectors are used to find or select HTML Components based on their element name,id,attribute and more.
+
+THE ELEMENT SELECTOR.
+--> example
+p {color:red;text-align;}
+
+** THE ID SELECTOR **
+the style rule below will be applied to the HTML element with ID='para1':
+--> example
+#para1 {
+text-align: center;
+color: red;
+}
+
+** THE CLASS SELECTOR **
+IN This example all HTML Elements with class='center' will be red and center
+--> Example
+.center {
+text-align: center;
+color: red;
+}
+
+--> Example
+p.center { //only P tag and center class
+text-align: center;
+color: red;
+}
+
+** The GROUPING SELECTOR **
+--> EXAMPLE
+H1,H2,P{
+text-align: center;
+color: red;
+
+CSS Comments
+/*  --........--........-- */
+}
+
+** THREE WAYS TO INSERT CSS **
+1) External Style Sheet
+2) Internal Style Sheet
+3) INline Style
+
+
+---External Style Sheet----
+<head>
+<link rel="stylesheet" type="text\css" href=""mystyle.css>
+</head>
+
+CSS Backgrounds Properties
+1)background-color
+2)background-image
+3)Background-repeat
+4)background-attachment
+5)background-position
+
+
+Position
+-- background-position: right top;
+
+
+
