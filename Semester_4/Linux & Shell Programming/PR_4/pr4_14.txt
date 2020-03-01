@@ -1,0 +1,14 @@
+#!/bin/bash
+#201806100110033
+
+if [ "$#" -eq 0 ] 
+then
+	echo "please give command line arguments"
+	exit 1;
+fi
+
+if [ -f "$1" ]
+then
+	echo "file is exits and regular"
+fi
+

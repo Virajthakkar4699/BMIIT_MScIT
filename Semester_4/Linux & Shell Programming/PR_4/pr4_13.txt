@@ -1,0 +1,11 @@
+#!/bin/bash
+#13. Write a script to display Pascal triangle. Accept N as command line argument and display triangle upto N lines.
+
+i=0
+while test $i -lt $1
+do 
+        
+
+	i=`expr $i + 1`
+done
+

@@ -1,0 +1,48 @@
+#!/bin/bash
+#11. Write a menu driven script to perform all Arithmetic operations on floating point values.
+
+echo "=========================="
+echo "1.addition"
+echo "2.subtraction"
+echo "3.multiplication"
+echo "4.division"
+echo "=========================="
+echo
+
+a=20.05
+b=20.02
+
+echo -n "Enter choise  : "
+read n
+
+   case $n in
+        
+  	1) echo "addition :"
+	  
+	   add=`expr $a + $b` 
+	   echo $add
+	;;
+
+	2) echo "subtraction :"
+	  
+	   sub=`expr $a - $b` 
+	   echo $sub
+	;;
+
+	3) echo "multiplication :"
+	  
+	   mul=`expr $a \* $b` 
+	   echo $mul
+	;;
+
+	4) echo "division :"
+	  
+	   div=`expr $a / $b` 
+	   echo $div
+	;;
+
+	  
+   esac 
+
+echo 
+

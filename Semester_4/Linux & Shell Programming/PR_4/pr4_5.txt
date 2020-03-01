@@ -1,0 +1,106 @@
+#!/bin/bash
+#Write a script to input a number and display following pattern up to inputted number.
+
+echo -n "Enter number to display pattern : "
+read n 
+
+i=0
+while test $i -lt $n
+do
+	echo -n "*"
+	i=`expr $i + 1`
+done 
+echo "\n"
+
+
+#===========================================================
+echo -n "Enter number to display pattern : "
+read n 
+i=0
+while test $i -lt $n
+do
+	echo ""
+	
+	j=0
+	while test $j -le $i
+	do
+		echo -n "*"
+		j=`expr $j + 1`
+	done
+
+	i=`expr $i + 1`
+done 
+echo ""
+echo "\n"
+
+#===========================================================
+echo -n "Enter number to display pattern : "
+read n 
+echo $i=$n
+while test $i -ge 1
+do
+	j=1
+	while test $j -le $i
+	do
+		echo -n "*"
+		j=`expr $j + 1`
+	done
+	
+	echo ""
+	i=`expr $i - 1`
+done 
+echo ""
+#===========================================================
+
+echo -n "Enter number to display pattern : "
+read n 
+i=0
+while test $i -lt $n
+do
+	j=0
+	while test $j -le $n - 1
+	do
+		echo -n ""
+		j=`expr $j + 1`
+	done
+
+	j=0
+	while test $j -le  $i-1
+	do
+		echo -n "*"
+		j=`expr $j + 1`
+	done
+
+	i=`expr $i + 1`
+	echo ""
+done 
+echo ""
+echo ""
+#===========================================================
+
+echo -n "Enter number to display pattern : "
+read n 
+echo $a=$n
+i=0
+while test $i -lt $n
+do
+	j=0
+	while test $j -lt $a
+	do
+		echo -n "*"
+		j=`expr $j + 1`
+	done
+	echo "\n"
+	a=`expr $a-1`
+
+	k=0
+	while test $k -lt  $i
+	do
+		echo -n ""
+		jk=`expr $k + 1`
+	done
+
+	i=`expr $i + 1`
+done 
+echo ""
+echo ""

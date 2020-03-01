@@ -1,0 +1,28 @@
+#!/bin/bash
+#201806100110033
+
+if [ "$#" -eq 0 ] 
+then
+	echo "please give command line arguments"
+	exit 1;
+fi
+
+
+if [ -d "$1" ]
+then
+	echo "file is directory"
+elif [ -f "$1" ]
+then
+	echo "file is regular"
+elif [ -s "$1" ]
+then
+	echo "file is shocet"
+elif [ -l "$1" ]
+then
+	echo "file is symbolic"
+else
+	echo ""
+fi
+				
+			
+

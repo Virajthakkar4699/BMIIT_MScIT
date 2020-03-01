@@ -1,0 +1,11 @@
+#!/bin/bash
+hour=$(date "+%H")
+if test $hour -gt 0 -a $hour -lt 12
+then
+echo "GOOD MORNING !!"
+elif test $hour -gt 16 -a $hour -lt 24 
+then
+echo "GOOD AFTERNOON !!"
+else
+echo "GOOD EVENING !!"
+fi

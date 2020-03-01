@@ -1,0 +1,14 @@
+#!/bin/bash
+# find number is positive nagative or zero
+echo "==== positive negative or zero number========="
+echo "enter the number :" 
+read a
+if [ "$a" -gt 00 ]
+then
+echo "number is positive"
+elif [ "$a" -lt 00 ]
+then
+echo "number is negative "
+else
+echo "number is zero "
+fi

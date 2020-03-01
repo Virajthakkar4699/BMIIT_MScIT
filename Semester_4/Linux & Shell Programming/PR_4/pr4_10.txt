@@ -1,0 +1,12 @@
+#!/bin/bash
+#10. Write a script to check input number is the prime number.
+
+echo -n "enter the number :"
+read n
+
+if test `expr $n % 2` -eq 1 -o `expr $n / 2` -eq 1
+then 
+	echo "$n is prime number"
+else
+	echo "not prime number"
+fi

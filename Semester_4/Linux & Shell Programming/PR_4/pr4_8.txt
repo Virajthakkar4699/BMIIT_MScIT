@@ -1,0 +1,23 @@
+#!/bin/bash
+#8. Write a script which accept command line argument and display number of command line argument and two arguments on each line.
+
+echo Total Number of Argument Passed: "$#"
+echo All Arguments are: "$*"
+
+if [ "$#" -eq 0 ] 
+then
+	echo "please give  command line arguments properly"
+	exit 1;
+fi
+
+i=1
+while [ "$i" -gt 0 -a "$i" -lt 3 ]	
+do
+		echo "$*"
+		i=`expr $i + 1`
+done
+
+
+	
+
+

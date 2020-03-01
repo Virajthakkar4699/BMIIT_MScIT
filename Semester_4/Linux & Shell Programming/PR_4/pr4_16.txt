@@ -1,0 +1,20 @@
+#!/bin/bash
+#201806100110033
+#16. Write a script to accept command line arguments as file name and number say N. Display all words from file having length N.
+
+if [ "$#" -gt 2 ] 
+then
+	echo "please give two command line arguments properly"
+	exit 1;
+fi
+
+char=0
+for word in line
+do
+	char=`expr "$char" + "$line" : '.*'`
+	if [ "$char" -eq "$2" ]
+	then
+		echo "$char"
+	fi
+done<"$1"
+

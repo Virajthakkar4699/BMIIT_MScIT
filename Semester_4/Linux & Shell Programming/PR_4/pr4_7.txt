@@ -1,0 +1,44 @@
+#!/bin/bash
+#Write scripts to do following validations.
+#a. Check three argument
+#b. Check one argument as number
+#c. Check two or more command line arguments
+
+if test "$#" -eq 0
+then
+	echo "please pass arguments"
+	exit 0
+fi
+
+echo "1. Check three argument"
+echo "2. Check one argument as number"
+echo "3.Check two or more command line arguments"s
+
+
+echo -n "Enter choice  : "
+read n
+
+   case $n in
+        
+  	1) if test "$#" -ge 3
+	   then
+		echo "three argument are avilable"
+	   fi
+	;;
+
+	2) if test "$#" -eq  '^[0-9]+$'
+	   then 
+		echo "numbrer"
+	   fi
+	;;
+
+	3) if test "$#" -gt 2
+	   then
+		echo "two or more command line arguments"
+	   fi
+	;;
+
+
+   esac
+
+echo

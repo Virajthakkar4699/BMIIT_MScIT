@@ -1,0 +1,17 @@
+#!/bin/bash
+#12. Write a script to print the Fibonacci series upto N terms. Accept N as commmandd line
+
+a=0
+f=1
+
+i=0
+while test $i -lt $1
+do 
+        fn=`expr $a + $f`
+        a=$f
+        f=$fn
+        
+	echo "$a"
+
+	i=`expr $i + 1`
+done

@@ -1,0 +1,52 @@
+#!/bin/bash
+#check the total files in directory
+
+echo \\t "file_name" \\t "file_type" \\t \\t "readbale" \\t"writable" \\t "excutable" 
+count=0
+ls "$1" | while read files
+	  do
+	  
+
+		for dir in "$files"
+		do
+			count=`expr $count + 1`	
+			if [ -f "$files" ]
+			then
+				t="regular"
+			elif [ -d "$files" ]
+			then
+				t="directory"
+			elif [ -s "$files" ]
+			then
+				t="shocet"
+			else
+				t="nonof this"
+			fi
+
+			if [ -r "$files" ]
+			then
+				r="yes"
+			else
+				r="no"
+			fi
+
+			if [ -w "$files" ]
+			then
+				w="yes"
+			else
+				w="no"
+			fi
+
+			if [ -x "$files" ]
+			then
+				x="yes"
+			else
+				x="no"
+			fi
+		done
+		echo   \\t  "$files"   \\t  \\t   "$t"   \\t \\t "$r"    \\t \\t "$w"    \\t\\t "$x" 
+		echo total files in "$1" is : "$count"
+	done
+	
+
+

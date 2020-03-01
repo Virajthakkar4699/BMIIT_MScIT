@@ -1,0 +1,68 @@
+#!/bin/bash
+#9. Write a menu driven script to calculate area and perimeter of the shape like square, circle, rectangles and triangle.
+
+echo -n "Enter redius  of circle: "
+read r
+
+echo "enter the length of squre"
+read l
+
+echo "enter the height of rectengle"
+read h
+
+pie=3
+
+echo "=========================="
+echo "1.squre"
+echo "2.circle"
+echo "3.rectangle"
+echo "=========================="
+echo
+
+echo -n "Enter choise  : "
+read n
+
+   case $n in
+        
+  	1) echo "squre :"
+	  
+	   echo "area of squre"
+	   area=`expr $l \* $l` 
+	   echo $area
+
+	   echo "perimeter of squre :"
+	   per=`expr 4 \* $l`
+	   echo $per
+	;;
+
+	2) echo "circle :"
+	  
+
+	   echo "area of circle"
+	   a=`expr $pie \* $r` 
+	   area=`expr $a \* $r` 
+	   echo $area
+
+	   echo "perimeter of circle :"
+	   p=`expr 2 \* $pie`
+	   per=`expr $p \* $r`
+	   echo $per
+	;;
+
+	3) echo "rectengle :"
+	   
+
+	   echo "area of rectengle"
+	   area=`expr $l \* $h` 
+	   echo $area
+
+	   echo "perimeter of rectengle :"
+	   p=`expr $l + $h`
+	   per=`expe $p \* 2`
+	   echo $per
+	;;
+
+	  
+   esac 
+
+echo 
