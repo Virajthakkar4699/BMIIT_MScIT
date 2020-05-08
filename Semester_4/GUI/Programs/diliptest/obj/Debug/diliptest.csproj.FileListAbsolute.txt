@@ -1,0 +1,10 @@
+C:\Users\Viraj Thakkar\Desktop\diliptest\bin\Debug\diliptest.exe.config
+C:\Users\Viraj Thakkar\Desktop\diliptest\bin\Debug\diliptest.exe
+C:\Users\Viraj Thakkar\Desktop\diliptest\bin\Debug\diliptest.pdb
+C:\Users\Viraj Thakkar\Desktop\diliptest\obj\Debug\diliptest.csprojAssemblyReference.cache
+C:\Users\Viraj Thakkar\Desktop\diliptest\obj\Debug\diliptest.Form1.resources
+C:\Users\Viraj Thakkar\Desktop\diliptest\obj\Debug\diliptest.Form2.resources
+C:\Users\Viraj Thakkar\Desktop\diliptest\obj\Debug\diliptest.Properties.Resources.resources
+C:\Users\Viraj Thakkar\Desktop\diliptest\obj\Debug\diliptest.csproj.GenerateResource.cache
+C:\Users\Viraj Thakkar\Desktop\diliptest\obj\Debug\diliptest.exe
+C:\Users\Viraj Thakkar\Desktop\diliptest\obj\Debug\diliptest.pdb

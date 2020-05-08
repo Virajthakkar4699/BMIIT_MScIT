@@ -1,0 +1,55 @@
+import java.sql.*;
+import java.util.*;
+import java.io.*;
+
+class Sql2
+{
+
+	public static void main(String Args[])
+	{
+		Scanner sc=new Scanner(System.in);
+
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/mysql","root","root");
+			System.out.println("Connection Established");
+
+			
+
+			CallableStatement cst=con.prepareCall("{call p_call4(?,?)}");
+			cst.registerOutParameter(2,Types.VARCHAR);
+			
+			cst.setInt(1,18);
+			cst.execute();
+			
+			ResultSet rs=cst.getResultSet();
+			
+			File f=new File("Data2.txt");
+			FileWriter F=new FileWriter(f);
+
+			while(rs.next())
+			{
+				
+				System.out.println(rs.getInt(1)+"|"+rs.getString(2));
+				
+				F.write(rs.getInt(1)+"|"+rs.getString(2));
+				System.out.println();
+				
+				
+				
+				
+			}
+			F.close();
+			con.close();
+
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error : "+e);
+
+		}
+		
+	}
+}

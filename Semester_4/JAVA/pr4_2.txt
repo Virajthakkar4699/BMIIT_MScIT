@@ -1,0 +1,33 @@
+import java.util.*;
+
+class NumberExample
+{
+	public static void main(String[] args)
+	{
+
+		try
+		{
+
+			Scanner sc=new Scanner(System.in);
+
+			System.out.print("Enter the number : ");
+			int num=sc.nextInt();
+
+			if(num<1 || num>9)
+			{
+				throw new Exception("Don't enter number out 0f 0 to 9 range");
+			}
+
+			else
+			{
+				System.out.println("Number is : "+num);
+			}
+
+		}
+
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}

@@ -1,5 +1,0 @@
-C:\Users\sai\Desktop\201806100110094\Practical_List_1\Practical_List_1\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\sai\Desktop\201806100110094\Practical_List_1\Practical_List_1\bin\Debug\Practical_List_1.exe
-C:\Users\sai\Desktop\201806100110094\Practical_List_1\Practical_List_1\bin\Debug\Practical_List_1.pdb
-C:\Users\sai\Desktop\201806100110094\Practical_List_1\Practical_List_1\obj\x86\Debug\Practical_List_1.exe
-C:\Users\sai\Desktop\201806100110094\Practical_List_1\Practical_List_1\obj\x86\Debug\Practical_List_1.pdb

@@ -1,0 +1,33 @@
+import java.util.*;
+
+class StringExample
+{
+	public static void main(String[] args)
+	{
+
+		try
+		{
+
+			Scanner sc=new Scanner(System.in);
+
+			System.out.print("Enter the string : ");
+			String stn=sc.nextLine();
+
+			if(stn.length()==5)
+			{
+				throw new Exception("Don't enter string of length 5");
+			}
+
+			else
+			{
+				System.out.println("String is : "+stn);
+			}
+
+		}
+
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}

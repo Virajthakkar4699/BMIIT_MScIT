@@ -1,0 +1,10 @@
+091,viraj,bscit,4,surat
+092,jiyaa,bscit,6,surat
+093,pranjal,bscit,4,surat
+094,pratik,b.com,5,vadodara
+095,neel,BBA,2,vadodara
+096,deep,BBA,1,surat
+097,desai,bscit,3,valsad
+098,kruti,bscit,5,valsad
+099,krishna,BBA,6,surat
+100,vishwa,b.com,1,valsad

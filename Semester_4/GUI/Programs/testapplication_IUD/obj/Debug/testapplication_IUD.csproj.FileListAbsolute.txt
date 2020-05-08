@@ -1,0 +1,9 @@
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\bin\Debug\testapplication_IUD.exe.config
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\bin\Debug\testapplication_IUD.exe
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\bin\Debug\testapplication_IUD.pdb
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\obj\Debug\testapplication_IUD.Form1.resources
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\obj\Debug\testapplication_IUD.Properties.Resources.resources
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\obj\Debug\testapplication_IUD.csproj.GenerateResource.cache
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\obj\Debug\testapplication_IUD.exe
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\obj\Debug\testapplication_IUD.pdb
+D:\Github Repositories\BMIIT_MScIT\Semester_4\GUI\Programs\testapplication_IUD\obj\Debug\testapplication_IUD.csprojAssemblyReference.cache

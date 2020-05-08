@@ -1,0 +1,11 @@
+100,viraj,bmiit
+101,raj,pharmacy
+102,ravi,b.com
+103,prajay,b,tech
+104,rushabh,mechanical
+105,nirmal,electrical
+106,heet,computer
+107,pranjal,bba
+108,jiya,bmiit
+109,dhruv,b.com
+110,pratik,bmiit

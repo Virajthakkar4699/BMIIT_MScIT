@@ -1,0 +1,10 @@
+101;viraj;1;manager;50000
+102;raj;2;salesman;6000
+103;ravi;6;manager;7900
+104;pratik;4;executive;82550
+105;neel;5;executive;60000
+106;deep;2;salesman;52330
+107;desai;1;;executive;25000
+108;kruti;6;manager;40000
+109;krishna;2;salesman;2500
+110;vishwa;6;manager;36000

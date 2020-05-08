@@ -1,0 +1,10 @@
+201,motor,surat,250
+202,lens,vadodara,300
+203,write head,surat,360
+204,screws,ahemedabad,450
+205,led,surat,ahemedabad,900
+206,keyboard,vadodara,250
+207,valves,surat,160
+208,disc,valsad,100
+209,cutter,vadodara,550
+210,stopper,surat,300

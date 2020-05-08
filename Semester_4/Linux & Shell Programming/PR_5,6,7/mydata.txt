@@ -1,0 +1,10 @@
+viraj,bscit,bmiit,utu,094
+raj,b.com,bvpatel,utu,034
+ravi,b.com,soa,parul,052
+parth,bscit,bmiit,utu,011
+pratik,computer,bmiit,utu,022
+vishwa,it,cgpit,utu,033
+kruti,arts,rbsa,mu,044
+krishna,biotechnology,cgbibt,parul,055
+neel,sports,srcp,vnsgu,089
+deep,BBA,bvpatel,vnsgu,056
