@@ -1,0 +1,26 @@
+Explicit Type conversion in java
+
+Block Statements, Declaration Statement, Empty Statement 
+
+Array Classification
+Creation of Regular arrays and jagged arrays
+Reading and writing of arrays 
+
+Classes in Java
+
+Constructors and overloading constructors
+This and final keyword
+Garbage collection and finalize method
+Features of Static Members, Static Fields and Methods 
+Nested and Inner class
+
+Inheritance: Derived Class Declaration,
+Types of Inheritance,
+Advantages of Inheritance,
+Implementation of Inheritance,
+Super Keyword
+
+Constructors in derived class
+Overriding
+abstract classes and methods
+Final classes and methods

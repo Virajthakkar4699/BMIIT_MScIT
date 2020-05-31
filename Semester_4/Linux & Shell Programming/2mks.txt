@@ -1,0 +1,58 @@
+---------------------
+2mks
+--------------------
+Section A
+---------------------
+1)Differentiate hard-link and soft link using diagram. 
+
+2)What is meaning of + and – sign in the output of jobs command? 
+
+3)Can we use symbolic codes to partially change the permission for user, group and other? Justify your answer. 
+
+4)What do you mean by sequenced command and grouped command? 
+
+5)If user mask set to 554 then which default permissions are set to for newly created file and directory? 
+
+6)How can shell provide command substitution? Give an example.
+
+7)Write an output of following commands. 
+a. $echo –e “Hello \n World” | wc – l 
+b. $echo “Hello \n World” | wc -l 
+
+8)Describe in brief the output redirection feature of shell. Write descriptor for output redirection.  
+
+9)State two differences between the output of cat and paste command with example. 
+
+10)Is wc command consider new line character (\n) in character count? Write and brief any two option of wc command. 
+
+11) Write a code snippet to determine if a given file name is directory and exist.  
+
+ -----------------------------
+Section B
+-------------------------------
+1) Enlist the columns displayed in output of ls –l command. 
+
+2) How to access command line arguments in script? Write significance of $# variable.
+
+3) Describe syntax of substitute command used in sed with example. 
+
+4)If the files having 150 lines then how many times the action is runs in awk? Is it compulsory to write BEGIN and END section in an awk script? 
+
+5) What three possible values return by getline? Write a meaning of each.  
+ 
+6) Evaluate the following regular expressions. Write the possible matching strings for the given regular expressions. 
+(1) XY\{4\}              
+(2) A(BD)\{,3\} 
+ 
+7) Write the purpose of “–n” and “–i” options in grep. Give an example. 
+
+8)What values are return by NF and NR system variables in awk? Write the significance of ORS and OFS system variables in awk. 
+
+9)List four anchors supported in Regular Expression. Give an example. 
+
+10) Write a sed command to replace word “Mscit” with “BMIIT” at all places in file “institute.txt”. How to write regular expression in address part of sed command? 
+
+11)Write syntax of save operator in regular expression. Give the example of back references used with save operator.  
+
+12)How to specify the filed separator in awk script if the input file have field separator other than whitespace. What is the effect on output if I set ORS=”$” in awk script? 
+ 

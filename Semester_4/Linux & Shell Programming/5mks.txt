@@ -1,0 +1,43 @@
+-----------------------
+5mks
+----------------------
+Section A
+------------------
+Explain four blocks of file system with appropriate diagram.
+
+What is wildcards? Is wildcard works on content of file? Illustrate with example any two wildcards in detail. 
+
+Which permissions are necessary to read the content of directory? Explain output of “ls –l” command with example.  
+
+How to change standard streams while executing commands in LINUX? Explain redirection feature of LINUX with proper example. 
+
+What is the use of environment variables? Explain any five environment variables with appropriate example. 
+
+Explain grouped, sequenced, chained and conditional command execution with example.
+   
+Write short note on command execution process with example.
+
+What is process? Explain job states and its associated commands with each state of process.
+
+Write a note on positional parameters and shift command with appropriate example.   
+
+-----------------------
+Section B
+----------------------------
+1)  “Awk script does not execute without BEGIN and END pattern.” Justify statement. Also list and explain any four system variables supported by awk. 
+
+2) “Filters can manipulates the content of file.” Write true or false with justification. Explain cut, sort and uniq filter with proper example.  
+
+3) Does awk supports string index in array? Write a note on associative array. 
+
+4)  Explain address and commands in sed utility with appropriate example.  
+
+5) What do you mean by regular expression? Explain any four operators in regular expression with example. 
+
+6) Explain redirection feature of shell with example. 
+
+8)Write a note on shell’s command interpretation cycle with the example. 
+
+9) What is filter? Is filters manipulates the data stored in file? Where the effect of filter is reflect? Explain grep filter in detail. 
+  
+10) Explain three quotes supported by shell with example. 

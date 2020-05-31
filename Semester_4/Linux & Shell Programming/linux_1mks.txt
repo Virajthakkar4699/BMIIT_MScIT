@@ -1,0 +1,61 @@
+--------------------------------------------------------
+1mks
+---------------------------------------------------------
+Section A
+---------------------------------------------------------
+
+1) Which symbol used for single character wildcard? Give example. 
+
+2) What will be the output of following? Why?   
+x=”5”  
+echo ‘$5’ 
+echo “$x” 
+
+3) What is the meaning “=” in changing permission using symbolic code method? 
+
+4) Which permissions are necessary to read directory? 
+
+5)What is the use of “=” operator in changing permission using symbolic method? Give an example. 
+
+6) Write an expression to find length of string.  
+
+7) What are the three levels of security in UNIX? Which security handled by super user? 
+
+8) Write the output and interpretation of following code.        
+x=10        
+echo “< > $x ‘y’ ? &”        
+echo ‘< > $x y ? &’
+
+9)What are the stream descriptors associated with standard input, standard output and standard error respectively? 
+
+10) How to store and access the value in to variable? Give an example.  
+
+11) What is the output of following command if the file having more than 20 lines?   
+head -20 file1 | tail -20 | wc –l 
+
+12) Write a key difference between cat and paste command while used for merge two files.
+
+----------------------------------
+Section B  
+-------------------------------------
+1) What is done by following command? 
+cat   file1.txt   file2.txt   >   file3.txt 
+
+2) Write a code snippet that check file exist and regular file.  
+
+3) In which file all users information like username, password, home directory path, login shell path are stored. 
+
+4) How many lines printed using head command by default? 
+
+5) What is the output and interpretation of following command? sed ‘s/UNIX/LINUX/g’ file1 
+
+6) How to change the primary prompt “$” to “#” for current shell?  
+
+7) Which special variable is used to check previous command successfully executed or not? Give an example.  
+
+8) What is the difference between “head -5 a.txt > tmp” and “head -5 a.txt >> tmp”. 
+
+9)What will be the output of following command if file exist and empty? 
+$ wc emp.txt 
+
+10)Which option is used to set delimiter in cut command? 

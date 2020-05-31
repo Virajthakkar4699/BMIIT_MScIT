@@ -1,0 +1,30 @@
+Assignment Questions:
+
+Short Questions
+1} Define below terms
+BFSK,WISP,U-NII,FCC,IEE 802.20X,PDC,CDPD,UWC-136/EDGE,GPRS,ARIB,IB,CCSA,
+Wireless ATM,AII-IP,QAM
+
+2)Applications of FM
+3)How digital radio evolves
+4)Compare Global/regional/national Orgs./Implementation groups
+5)What is purpose of ANSI in wireless standard
+6)Which Organosation are involved in development of 3G
+7)Compare 1G to 5G
+
+Chapter - 2
+5Marks
+1- Database of GSM
+2- GSM Inter MSC Handover
+3- UM INterface
+4- GSM Infrsatructure
+5- GSM Identities
+6- GSM Operations
+7- What is GSM Simcard and What purpose does it serve
+8- Purpose of Periodic location updating
+
+5 Marks
+1- Write a short note on IS-95B,CDMA 2000,W-CDMA
+2- Explain CDMA, Soft and Softer Handoff
+3- Explain CDMA Architecture
+4- Differentiate GSM and CDMA
