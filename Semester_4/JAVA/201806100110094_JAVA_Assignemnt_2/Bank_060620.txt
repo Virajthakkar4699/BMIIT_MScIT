@@ -1,0 +1,7 @@
+905      Pratik      Deposit      500
+905      Pratik      Deposit      5000
+905      Pratik      Withdraw      8000
+905      Pratik      Deposit      1500
+905      Pratik      Withdraw      500
+905      Pratik      Deposit      500
+905      Pratik      Withdraw      700

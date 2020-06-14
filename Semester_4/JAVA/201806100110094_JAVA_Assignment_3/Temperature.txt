@@ -1,0 +1,100 @@
+import java.util.*;
+
+class Temperature
+{
+   
+    public static void main(String args[])
+    {
+
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> array_new= new ArrayList<Integer>();
+        int tarray[] ={34, 36, 34, 33, 31, 31, 36, 36, 32, 36, 31, 33};
+        boolean check=true;
+
+        for(int i:tarray)
+        {
+            array_new.add(i);
+        }
+        while(check)
+        {
+        System.out.println("=======================MENU==============================================================");
+        System.out.println("1. Represent the data using an ArrayList.");
+        System.out.println("2. Extract all the temperature in the morning and evening.");
+        System.out.println("3. Extract all the temperature at night.");
+        System.out.println("4. Extract all the temperature obtained by the weather station in the first four hours.");
+        System.out.println("5. Extract the last measurement of the day.");
+        System.out.println("6. Exit");
+        System.out.println("=========================================================================================");
+
+        System.out.println("please enter your choice");
+        int ch=sc.nextInt();
+       
+        switch(ch)
+        {
+            case 1:
+                        System.out.println("Elements in array list are: " + array_new);
+                        System.out.println("=========================================================");
+                        System.out.println("");
+                        break;
+
+           case 2:
+                        System.out.println("===========================================================");
+                        System.out.println("Temperatures Extracted from Morning and Evening are: ");
+                        System.out.println("Morning 06:00 A.M  " + array_new.get(3));
+                        System.out.println("Morning 08:00 A.M  " + array_new.get(4));
+                        System.out.println("Morning 10:00 A.M  " + array_new.get(5));
+                        System.out.println("Evening 6:00 P.M   " + array_new.get(9));
+                        System.out.println("Evening 8:00 P.M   " + array_new.get(10));
+                        System.out.println("===========================================================");
+                        System.out.println("");
+                        break;
+
+
+           case 3:
+                        System.out.println("===========================================================");
+                        System.out.println("Temperatures Extracted from Night are:");
+                        System.out.println("Night 12:00 A.M  " + array_new.get(0));
+                        System.out.println("Night 02:00 A.M  " + array_new.get(1));
+                        System.out.println("Night 04:00 A.M  " + array_new.get(2));
+                        System.out.println("Night 10:00 P.M   " + array_new.get(11));
+                        System.out.println("===========================================================");
+                        System.out.println("");
+                        break;
+
+           case 4:
+                        System.out.println("===========================================================");
+                        System.out.println("Temperatures Extracted from first four hours:");
+                        System.out.println("Night 12:00 A.M  " + array_new.get(0));
+                        System.out.println("Night 02:00 A.M  " + array_new.get(1));
+                        System.out.println("Night 04:00 A.M  " + array_new.get(2));
+                        System.out.println("===========================================================");
+                        System.out.println("");
+                        break;
+
+
+           case 5:           
+                        System.out.println("===========================================================");
+                        System.out.println("Temperatures Extracted at last part of the day: ");
+                        System.out.println("Night 10:00 P.M " + array_new.get(array_new.size()-1));
+                        System.out.println("===========================================================");
+                        break;
+          case 6:
+
+                            check=false;
+                            break;
+
+        
+        default:
+
+                        System.out.println("please enter valid choice");
+                        break;
+
+        
+        }
+    }
+       
+
+
+    }
+
+}

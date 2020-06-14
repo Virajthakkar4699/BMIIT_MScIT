@@ -1,0 +1,3 @@
+create table Employee(name varchar(20),password varchar(20));
+
+create table account (Acc_num bigint,Holder varchar(20),Aadhar bigint(16),Address varchar(20),Age int(2),Gender varchar(10),Balance bigint(16),Date date );

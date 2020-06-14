@@ -1,0 +1,106 @@
+import java.util.*;
+
+class Movie_Ticket
+{
+        public static void main(String[] args)
+        {
+                Scanner sc=new Scanner(System.in);
+
+            String cust_name="";
+            String show_type="";
+            int age=0;
+            int tkt_prc=0;
+
+
+            System.out.println("Enter Name :");
+            cust_name=sc.nextLine();
+            boolean validcheck1=true;
+            while(validcheck1)
+            {
+                System.out.println("Enter Age :");
+                age=sc.nextInt();
+                if(age<=0 || age>90)
+                {
+                    System.out.println("please enter valid age");
+                }
+                else
+                {
+                    validcheck1=false;
+                }
+        
+            }
+
+            sc.nextLine();
+            boolean validcheck2=true;
+            while(validcheck2)
+            {
+            System.out.println("Enter the show_type :");
+            System.out.println("Note: Enter Show Type  1) normal or 2) matinee ");
+              show_type=sc.nextLine();
+             show_type = show_type.toLowerCase();
+             if(show_type.equals("normal") || show_type.equals("matinee"))
+             {
+                 validcheck2=false;
+             }
+             else
+             {
+                 System.out.println("please enter valid show time");
+             }
+
+            }
+
+
+
+        if(show_type.equals("normal"))
+        {
+
+            if(age <= 15 )
+            {
+                tkt_prc=60;
+            }
+            else if(age >15 )
+            {
+                tkt_prc=100;
+            }
+            else
+            {
+
+            }
+        }
+
+        else if(show_time.equals("matinee"))
+        {
+
+            if(age <= 15)
+            {
+                tkt_prc=40;
+            }
+            else if(age >15 )
+            {
+                tkt_prc=50;
+            }
+            else
+            {
+
+            }
+        }
+
+        else
+        {
+            
+        }
+System.out.println("                   MOVIE TICKET                         ");
+System.out.println("=========================================================");
+System.out.println("Name          :                   "+cust_name);
+System.out.println("Age           :                   "+age);
+System.out.println("Showtime      :                   "+show_type);
+System.out.println("tkt_prc  :                   "+tkt_prc );
+System.out.println("=========================================================");
+
+        }
+
+}
+
+
+
+
