@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+    
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>viraj</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>viraj1234</param-value>
+    </context-param>
+    
+    <servlet>
+        <servlet-name>Authentication</servlet-name>
+        <servlet-class>Authentication</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Authentication</servlet-name>
+        <url-pattern>/Authentication</url-pattern>
+    </servlet-mapping>
+	
+    <servlet>
+        <servlet-name>WelcomePage</servlet-name>
+        <servlet-class>WelcomePage</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>WelcomePage</servlet-name>
+        <url-pattern>/WelcomePage</url-pattern>
+    </servlet-mapping>
+</web-app>

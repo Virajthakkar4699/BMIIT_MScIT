@@ -1,0 +1,8 @@
+$  awk '{a[i++]=$0}END{for(j=i-1;j>=0;j--)print a[j];}' mydata2.txt
+AIX
+Solaris
+Linux
+
+
+awk '{ print NR,"-" length }' mydata2.txt
+

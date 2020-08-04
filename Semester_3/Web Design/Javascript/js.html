@@ -5,6 +5,16 @@
 function myFunction() {
   document.getElementById("demo1").innerHTML = "Paragraph changed. Viraj Thakkar";
 }
+
+window.onblur=function(){
+	isactive=false;
+}
+
+if(isactive==false)
+{
+	window.alert("Inactive");
+	continue;
+}
 </script>
 </head>
 </head>
@@ -105,6 +115,7 @@ function inputform() {
 	window.alert("User: "+ xyz+ " "+ "Pass :"+ vyz);		
 	}
 }
+
 </script>
 
 <form name="myForm1" action="#" onsubmit="return inputform()" method="post">
