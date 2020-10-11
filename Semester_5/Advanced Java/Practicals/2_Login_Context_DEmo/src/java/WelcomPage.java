@@ -25,6 +25,8 @@ public class WelcomPage extends HttpServlet {
         res.setContentType("text/html");
         PrintWriter pw=res.getWriter();
         pw.println("Greetings from Welcome Page");
+        pw.println("<input type=text> id='viraj'");
+        
         
     }
    

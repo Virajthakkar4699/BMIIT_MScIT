@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Electricity Bill</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>                 
+        <form action= "invoice">
+            <div>
+                 <h1><b>invoice Details</b></h1> 
+                    Customer Number:
+                    <input type="text" name="customernum" required>
+              <br><br>
+                 Customer Name:
+                   <input type="text" name="customername" required>
+            <br><br>
+              Customer Address:
+                <textarea  name="customeradd" required>
+                    </textarea>
+            <br><br>
+                Enter invoice duration:
+                <select name="invoice_duration" id="invoice" required> 
+             <option value="1 month">1   month</option>
+             <option value="2 months">2  months</option>
+             <option value="3  months">3  months</option>
+             <option value="4  months">4  months</option>
+             <option value="5  months">5  months</option>
+             <option value="6  months">6  months</option>
+             <option value="7  months">7  months</option>
+             <option value="8  months">8  months</option>
+             <option value="9  months">9  months</option>
+             <option value="10 months">10 months</option>
+             <option value="11 months">11 months</option>
+             <option value="12 months">12 months</option>
+                    </select>
+                <br><br>
+                 Number Of Units:
+                <input type="text" name="Number_of_units" required>
+                <br><br>
+                <input type="submit" value="payBill">
+            </div>
+        </form> 
+    </body>
+</html>
+======================================================================================================
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author viraj
+ */
+public class Calculate_Bill extends HttpServlet {
+    float invoice_amount;
+    
+    public static boolean isAlpha(String s) {
+	return s != null && s.matches("^[a-zA-Z]*$");
+    }
+	
+    @Override
+    public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException
+    {
+        RequestDispatcher rd;
+        PrintWriter pw =res.getWriter();
+        String customer_number=req.getParameter("customernum");
+        String customer_name=req.getParameter("customername");
+        String customer_address=req.getParameter("customeradd");
+        String bill_duration=req.getParameter("invoice_duration");
+        String unitvalue1=req.getParameter("Number_of_units");
+        int length = String.valueOf(customernum).length();
+        boolean check=String.valueOf(customernum).matches("[0-9]+");
+        boolean check1=String.valueOf(unitvalue1).matches("[0-9]+");
+        boolean value=isAlpha(customername);
+        if(value==false || check==false || check1==false || length!=11)
+        {
+             rd=req.getRequestDispatcher("/index.html");
+           rd.include(req,res);
+        }
+        if(value==false )
+        {
+           pw.println("<font color='blue'>");
+           pw.println("only alphabets allowed in customer name");
+           pw.println("</center>");
+        }
+        if(length!=11 || check==false )
+        {
+           
+           pw.println("<center>");
+           pw.println("<br>");
+           pw.println("<font color='blue'>");
+           pw.println("only 11 Digit customer number");
+             pw.println("</center>");
+            
+       }
+        if(check1==false )
+        {
+           
+           pw.println("<center>");
+           pw.println("<br>");
+           pw.println("<font color='blue'>");
+           pw.println("unit  value only numbers");
+             pw.println("</center>");
+            
+       }
+        
+       
+       if(value==true && check1==true && check==true && length==11)
+        {
+           int unitvalue=Integer.parseInt(unitvalue1);
+        if(unitvalue<=100)
+        {
+           invoice_amount=((100*20)+(18/100));
+        }
+        else if(unitvalue>100 && unitvalue<280)
+        {
+             invoice_amount=(((100*20)+(18/100))+(unitvalue-((100*25)+(18/100))));
+        }
+         else if(unitvalue>=280)
+        {
+             invoice_amount=(((100*20)+(18/100))+(unitvalue-((100*25)+(20/100))));
+        }
+        else
+         {
+            
+         }
+        
+        rd=req.getRequestDispatcher("Reciept_Invoice");
+        req.setAttribute("Name",customername);
+        req.setAttribute("Number",customernum);
+        req.setAttribute("address",customeradd);
+        req.setAttribute("duration",invoice_duration);
+        req.setAttribute("unit",unitvalue);
+        req.setAttribute("INVOICE",invoice_amount);
+        rd.forward(req,res);
+        }        
+        
+    }
+    
+}
+============================================================================================
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author viraj
+ */
+public class View_Bill extends HttpServlet{
+    
+    @Override
+    public void service(HttpServletRequest req, HttpServletResponse rep) throws IOException
+    {
+        rep.setContentType("text/html");
+        PrintWriter pw= rep.getWriter();
+         String customer_number=(String) req.getAttribute("Number");
+        String customer_name=(String) req.getAttribute("Name");
+        String customer_address=(String) req.getAttribute("address");
+        String bill_duration=(String) req.getAttribute("duration");
+        int unitvalue=(int) req.getAttribute("unit");
+        float Bill_Amount =(float) req.getAttribute("Bill");
+          pw.println("<html>");
+          pw.println("<center>");
+          pw.println("<head><b> Bill </b></head> <br>");
+          pw.println("<body>");
+          pw.println("=================================== <br>");
+          pw.println("Customer Number : "+customernum);
+          pw.println("<br><br>");
+          pw.println("Customer Name : "+customername);
+          pw.println("<br><br>");
+          pw.println("Address : "+customeradd);
+          pw.println("<br><br>");
+          pw.println("Bill Duration : "+invoice_duration);
+          pw.println("<br><br>");
+          pw.println("Number Of Units : "+unitvalue);
+          pw.println("<br><br>");
+          pw.println("Bill Amount : " +Math.abs(invoice_Amount));
+          pw.println("<br>===================================");
+          pw.println("</body>");
+          pw.println("</center>");
+          pw.println("</html>");
+    }
+}
+=============================================================================================================
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app
+ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd"> 
+<web-app>
+
+    <servlet>
+        <servlet-name>calculate</servlet-name>
+        <servlet-class>Calculate_Bill</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>calculate</servlet-name>
+        <url-pattern>/bill</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>view</servlet-name>
+        <servlet-class>View_Bill</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>view</servlet-name>
+        <url-pattern>/Reciept_Bill</url-pattern>
+    </servlet-mapping>
+   
+</web-app>
+

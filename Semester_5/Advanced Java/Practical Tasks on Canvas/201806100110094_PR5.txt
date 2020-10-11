@@ -1,0 +1,83 @@
+Html file
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Display N numbers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <div>
+            <form action="show">
+                <center>
+                Enter Number:
+                <input type="text" name="number">
+                <br><br>
+                <input type="submit" value="SUBMIT">
+                </center>
+            </form>
+        </div>
+    </body>
+</html>
+=======================================================================================================
+java class
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author viraj
+ */
+public class Numbers extends HttpServlet{
+    @Override
+    public void service(HttpServletRequest req , HttpServletResponse res) throws IOException
+    {
+        res.setContentType("text/html");
+        PrintWriter pw=res.getWriter();
+        int number= Integer.parseInt(req.getParameter("number"));
+       
+        pw.println("Numbers till "+number+" are: ");
+       
+
+        for(int i=1;i<=number;i++)
+        {
+            
+            pw.println(i);
+             pw.println("<br>");
+            
+        }
+    }
+}
+=================================================================================================
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd"> 
+<web-app>
+
+    <servlet>
+        <servlet-name>Display</servlet-name>
+        <servlet-class>Numbers</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Display</servlet-name>
+        <url-pattern>/show</url-pattern>
+    </servlet-mapping>
+    </web-app>

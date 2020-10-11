@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="signin">
+            <center>
+                  Enter Username:
+                  <input type="text" name="username">
+                  <br><br>Enter password:
+		  <input type="password" name="password">
+                  <br><br><input type="submit" value="LOGIN"/>
+            </center>
+		</form>
+    
+    </body>
+</html>
+
+==========================================================================
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Priya Kanabar
+ */
+public class ServletConfig extends HttpServlet{
+    
+  @Override
+  public void service(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
+    {
+        
+       RequestDispatcher rd;
+        String name =req.getParameter("username");
+        String pass =req.getParameter("password");
+        PrintWriter pw=res.getWriter();
+        ServletContext scr= getServletContext();
+       String Name=scr.getInitParameter("Fname");
+       String Pass=scr.getInitParameter("Password");
+        if(name.equals(Name) && pass.equals(Pass))
+        {
+             res.setContentType("text/html");
+            rd=req.getRequestDispatcher("FinalConfig");
+            req.setAttribute("name",Name);
+            rd.forward(req,res);
+          
+        }
+        else
+        {
+            
+           res.setContentType("text/html");
+            pw.println("<center>");
+             rd=req.getRequestDispatcher("/index.html");
+             rd.include(req,res);
+             pw.println("<font color='red'>");
+            pw.println("login failed please enter valid username and password");
+             pw.println("</center>");
+        }
+    }
+    
+}
+=======================================================================
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Priya Kanabar
+ */
+public class Final_Config  extends HttpServlet 
+    {
+   
+  @Override
+  public void service(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
+    {
+        
+        PrintWriter pw=res.getWriter();
+              String name=(String)req.getAttribute("name");
+              res.setContentType("text/html");
+              pw.print("<center>");
+             pw.print("Hello "+name);
+                   pw.print("</center>");
+            
+          
+      
+    
+    
+}
+    
+}
+===========================================================================================
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd"> 
+ 
+ <web-app>
+     
+     <context-param> 
+         
+         <param-name>Fname</param-name>
+         <param-value>priya</param-value>
+        
+     </context-param>
+     
+       <context-param> 
+      <param-name>Password</param-name>
+      <param-value>priya123</param-value>
+       </context-param>
+     
+     
+     
+     <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>ServletConfig</servlet-class>    
+     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>context</servlet-name>
+        <servlet-class>Final_Config</servlet-class>    
+     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>context</servlet-name>
+        <url-pattern>/FinalConfig</url-pattern>
+    </servlet-mapping>
+    
+    </web-app>

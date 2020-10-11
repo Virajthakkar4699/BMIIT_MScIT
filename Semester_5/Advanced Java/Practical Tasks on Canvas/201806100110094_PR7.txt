@@ -1,0 +1,174 @@
+<html>
+    <head>
+    </head>
+    <body>
+    <center>
+     <form method="post" action="QUIZ">
+      <table>
+          <tr>
+              <td><p>Which of the following languages is more suited to a structured program?</p>
+              <input type="radio"  name="question1" value="PL/1" required>PL/1 <br>
+              <input type="radio"  name="question1" value="FORTRAN">FORTRAN<br>
+              <input type="radio"  name="question1" value="BASIC">BASIC<br>
+              <input type="radio"  name="question1" value="PASCAL">PASCAL<br></td>
+          </tr>
+    
+          <tr>
+              <td><p>Html element is the root element of an HTML document.</p>
+              <input type="radio" name="question2" value="True" required>True<br>
+              <input type="radio"  name="question2" value="False">False<br></td>
+          </tr>
+          <tr> 
+              <td><p>The brain of any computer system is</p>
+              <input type="radio" name="question3" value="ALU" required>ALU<br>
+              <input type="radio" name="question3" value="Memory">Memory<br>
+              <input type="radio" name="question3" value="CPU">CPU<br>
+              <input type="radio" name="question3" value="Control unit">Control unit<br></td>
+          </tr>
+          <tr>
+              <td><p>The first mechanical computer designed by Charles Babbage was called ?</p>
+             <input type="radio" name="question4" value="Abacus" required>Abacus<br>
+             <input type="radio" name="question4" value="Analytical Engine">Analytical Engine<br>
+             <input type="radio" name="question4" value=" Calculator"> Calculator<br>
+             <input type="radio" name="question4" value="alt">Processor<br></td>
+          </tr>
+          <tr>
+              <td><p>Which tag is used to define the html images?</p>
+              <input type="radio"  name="question5" value="img" required>img<br>
+              <input type="radio" name="question5" value="src">src<br>
+              <input type="radio" name="question5" value="href">href<br>
+              <input type="radio" name="question5" value="alt">alt<br><br></td>
+          </tr>          
+      </table> 
+         <center><input type="Submit" value="I'm finished!"></center>
+     </form>
+     </fieldset>
+    </center>
+    </body>
+</html>
+=======================================================================================================================
+======================================================================================================================
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author viraj
+ */
+public class Get_Answers extends HttpServlet {
+     @Override
+     public  void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
+    {  
+        String Answer1 = req.getParameter("question1");
+        String Answer2 = req.getParameter("question2");
+        String Answer3 = req.getParameter("question3");
+        String Answer4 = req.getParameter("question4");
+        String Answer5 = req.getParameter("question5");
+        int count=0;
+        res.setContentType("text/html");
+        PrintWriter pw =res.getWriter();
+        if(Answer1.equals("PASCAL"))
+        {
+            count=count+1;
+        }
+        if(Answer2.equals("True"))
+        {
+           count=count+1;
+        }
+        if(Answer3.equals("CPU"))
+        {
+            count=count+1;
+        }
+        if(Answer4.equals("Analytical Engine"))
+        {
+           count=count+1;
+        }
+        
+        if(Answer5.equals("img"))
+        {
+           count=count+1;
+        }
+        pw.println("<center>");
+        pw.println("<form action='RESULT'>");
+        pw.println("<input type='hidden' name='result' value='"+count+"'>");
+        pw.println("<input type='submit' value='click here to see result'> </form>");
+        pw.println("</form>");
+        pw.println("<center>");
+        
+        
+    }
+}
+    
+    
+
+=====================================================================================================
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author viraj
+ */
+public class Display_Result extends HttpServlet
+{
+ @Override
+ public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
+    {
+        PrintWriter pw =res.getWriter();
+        res.setContentType("text/html");
+        
+        String Final_Result = req.getParameter("result");
+        pw.println("<html>");
+        pw.println("<body>");
+        pw.println("<center>");
+        pw.println("<b>Result</b><br>");
+        pw.println("Your have scored "+Final_Result+" out of 5 <br><br>");
+        pw.println("<b>Correct Answers For Quiz Are:</b><br>");
+        pw.println("The language more suited to a structured program is PASCAL <br>");
+        pw.println("Html element is the root element of an HTML document-True<br>");
+        pw.println("The brain of any computer system is CPU <br>");
+        pw.println("The first mechanical computer designed by Charles Babbage was called Analytical Engine<br>");
+        pw.println("The tag used to define the html images is img<br>");
+        pw.println("</center>");
+         pw.println("</body>");
+        pw.println("</html>");
+    }   
+}
+==============================================================================================
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	 version="3.1">
+   <servlet>
+        <servlet-name>quiz</servlet-name>
+        <servlet-class>Get_Answers</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>quiz</servlet-name>
+        <url-pattern>/QUIZ</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>quiz_result</servlet-name>
+        <servlet-class>Display_Result</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>quiz_result</servlet-name>
+        <url-pattern>/RESULT</url-pattern>
+    </servlet-mapping>
+</web-app>

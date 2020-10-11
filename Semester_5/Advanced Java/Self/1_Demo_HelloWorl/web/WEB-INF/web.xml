@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>AddServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SqServlet</servlet-name>
+        <servlet-class>SqServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RedirectSqServlet</servlet-name>
+        <servlet-class>RedirectSqServlet</servlet-class>
+        <init-param>
+            <param-name>servconfig</param-name>
+            <param-value>Viraj</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/AddServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SqServlet</servlet-name>
+        <url-pattern>/SqServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirectSqServlet</servlet-name>
+        <url-pattern>/RedirectSqServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <context-param>
+        <param-name>Phone</param-name>
+        <param-value>Redmi</param-value>
+    </context-param>
+</web-app>

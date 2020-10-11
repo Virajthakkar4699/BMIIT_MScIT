@@ -37,6 +37,8 @@ public class Authentication extends HttpServlet {
         {
             RequestDispatcher rd=req.getRequestDispatcher("WelcomPage");
             rd.forward(req, res);
+            
+            //pw.println("<input type=text>");
         }
         else
         {
