@@ -1,0 +1,73 @@
+Work Flow
+Project > Team > Add Task > Task Description > Assign to team/Self > add deadline > Reassign to someone > flag if overdue > complete task > Complete the project.
+
+Functionality
+Add Project
+Add Team members
+Add Tasks , description and deadline
+Assign tasks to team members/self
+reassign tasks of needed
+view tasks created by you/team
+checklist/to do list
+searching of task
+filter the tasks
+
+
+sort task date wise
+highlight overdue tasks
+notify the overdue tasks
+see status/logs of the task
+see complete status of project
+see status in graphs
+
+see overall task performed per daywise/member wise
+additional reports if any.
+
+
+Database Tables:
+login
+Project Details + Clients
+team members project wise
+task list project wise and status
+task assignment and reassignment
+task log(optional)
+
+Problem Definition
+IRD
+Project Objective
+Product Scope.
+
+
+Problem Definition:
+For any organization their client are most important. Client needs regular updates on the status of work and its very important for the team to incorporate all the additional input given by the client in the project. but whenever there is a team working on the projects the syncronisation of the work becomes very important. there is a lot of communication flowing between the team members and thus there is clear need of a system which eases the flow of the communication from higher levels to the working team. there are times when there is no proper records of the task assignment, who is completing them , whether it is completed or not? or is there any problem in completing them. This ultimately results in poor services to the client.
+Thus TaskIT aims to resolve all the above problems with its robust architecture which is suitable for any industry to manage its workflow.
+
+Project Objective:
+TaskIT: Task Management System is to help any medium to large organisations who have defined procedure to carry out the particular task and have definite numbers of team members together contributing to the ultime product. It aims to convert all the manual and tedious workflow of the project into digital forms. thus it provides the facility for easy tracking of the project status. it makes more accountable to the project manager and team members as all the logs are kept from starting of the project to end. The ultimate motive of the TaskIT is to smooothen the communication between the team, thus making sure that all the problems are resolved asap, leaving no point untouched.
+
+This system enables a user to create a project dashboard, add their team members and assign the tasks to each other. The most important feature of this system that it clearly helps the user to priorities the tasks keeping the manager in loop.
+
+TaskIT Manages extensive informations about the project, its tasks,team members and allocation of task among team members. thus it results in easy generation of reports that depict the project completion status.
+
+
+Product Scope:
+The core goals of the system are limited to the follwing tasks.
+-Creation of a project
+-Add Team members to the project
+-Add tasks of the projects with its description and deadline
+-Assignment and reassignment of task witin the team members and project manager.
+-flag the overdue tasks and notify users.
+-Sort/Search/Filter tasks
+-Report of completion.
+
+The scope of system is limited from medium to large organizations who have team members work together in the single project.This system is designed to incorporate large number of projects where users work as team members or project managers depending on the project. it is designed to carry out the complete workflow of the project and keep all the stakeholders in the loop.
+
+
+
+Database Tables:
+login
+Project Details + Clients
+team members project wise
+task list project wise and status
+task assignment and reassignment
+task log(optional)
