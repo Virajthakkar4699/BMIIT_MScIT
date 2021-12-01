@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CIE_Practice">
         <activity
+            android:name=".broadcast"
+            android:exported="false" />
+        <activity
+            android:name=".sms"
+            android:exported="false" />
+        <activity
+            android:name=".Backgrounddemo"
+            android:exported="false" />
+        <activity
             android:name=".sqlite"
             android:exported="false" />
         <activity
@@ -35,6 +44,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".Bdclass"
+            android:exported="true"
+            android:enabled="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

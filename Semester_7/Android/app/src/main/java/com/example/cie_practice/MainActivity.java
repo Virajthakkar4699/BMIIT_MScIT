@@ -1,7 +1,11 @@
 package com.example.cie_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -72,6 +76,16 @@ public class MainActivity extends AppCompatActivity {
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Notification.Builder builder=
+                        new Notification.Builder(getApplicationContext())
+                                .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("HHH")
+                        .setContentText("fffghfhf")
+                        .setAutoCancel(true);
+
+                NotificationManager mgr=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                mgr.notify(0, builder.build());
+
 
             }
         });
@@ -79,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         service.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getApplicationContext(),Backgrounddemo.class));
             }
         });
 
@@ -100,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         broadcast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),broadcast.class));
 
             }
         });
