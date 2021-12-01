@@ -1,0 +1,42 @@
+https://www.selenium.dev/downloads/
+https://github.com/mozilla/geckodriver/releases
+https://chromedriver.chromium.org/downloads
+https://www.qafox.com/new-selenium-ide-commands-selenese/
+https://www.youtube.com/playlist?list=PLsjUcU8CQXGErA7pq8DGBSNiKdr-cKpdg
+
+selenium projects>properties>buildpath>library>add external jar file>
+
+1 Start JMeter
+2 Create a TestPlan
+3 Create a Thread Group (Users)
+4 Add a Sampler (Http)
+5 Add Listeners
+6 Run the Test
+
+JMeter Listeners (Reporting)
+Used for Reporting
+
+listener = elements that gather information about the performance test
+used to view results/metrics of the test
+
+Latency = time to first byte
+
+0ms—————————1000ms—————————2000ms
+0ms —————————————————————— 2000 ms
+
+1 View Results in Table
+2 View Results Tree
+3 Aggregate Report
+4 Graph Results
+5 Summary Report
+6 Simple Data Writer
+
+Assertions
+Assertions =  checks on the Request/Response
+
+1 Response Assertion
+2 Duration Assertion
+3 Size Assertion
+4 HTML Assertion
+5 XML JSON Assertion
+6 XPATH Assertion
