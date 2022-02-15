@@ -1,0 +1,395 @@
+CORE JDBC
+------------------------
+Student.java
+------
+package com.spring.core;
+
+import java.util.Scanner;
+
+public class Student {
+	
+	private int id;
+	private String name;
+	private String ad;
+	Scanner input = new Scanner(System.in);
+
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAd() {
+		return ad;
+	}
+	public void setAd(String ad) {
+		this.ad = ad;
+	}
+	
+	public Student(int id, String name, String ad) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.ad = ad;
+	}
+	
+	public Student() {
+	
+	}
+	
+	public void setalldata() {
+		System.out.print("Enter id - ");
+		setId(input.nextInt());
+		input.nextLine();
+		System.out.print("Enter name - ");
+		setName(input.nextLine());
+		System.out.print("Enter Address - ");
+		setAd(input.nextLine());
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", ad=" + ad + "]";
+	}	
+}
+-================================================================
+config.xml
+------------
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+		<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
+			<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+			<property name="url" value="jdbc:mysql://localhost:3306/trimurti"/>
+			<property name="username" value="root"/>
+			<property name="password" value="root"/>
+		</bean>
+		
+		<bean class="org.springframework.jdbc.core.JdbcTemplate" name="jdbc">
+			<property name="dataSource">
+				<ref bean="ds"/>
+			</property>
+		</bean>
+		 
+</beans>
+======================================================================
+app.java
+-----------------
+package com.spring.core;
+
+import java.sql.ResultSet;
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.mysql.cj.xdevapi.Statement;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/core/config.xml");
+    	JdbcTemplate template = context.getBean("jdbc",JdbcTemplate.class);
+    	
+    	//inset query
+    	
+//    	String query2 = "update demo set name=? where id=?";
+//    	int result = template.update(query2,"chodu chi",2);
+  	
+//    	String query3 = "delete from demo where id = ?";
+//    	int result = template.update(query3,2);
+    	 
+	    Student s= new Student();
+	    s.setalldata();
+
+    	String query = "insert into demo (id,name,ad) values (?,?,?)";
+    	int result = template.update(query,s.getId(),s.getName(),s.getAd());
+
+    	String selectQuery = "select * from demo";
+    	List <Student> students = template.query(selectQuery, new StudentMapper());
+    	for (Student record : students) {
+            System.out.print("ID : " + record.getId() );
+            System.out.print(", Name : " + record.getName() );
+            System.out.println(", Age : " + record.getAd());
+         }  
+	  
+    
+    }
+}
+========================================================================
+StudentMapper
+--------------
+package com.spring.core;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import org.springframework.jdbc.core.RowMapper;
+
+public class StudentMapper implements RowMapper<Student> {
+   public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+      Student student = new Student();
+      student.setId(rs.getInt("id"));
+      student.setName(rs.getString("name"));
+      student.setAd(rs.getString("ad"));
+      return student;
+   }
+}
+================================================================================================================================================================================================================================================================================================
+Spring CORE
+----------------------
+App.java
+------------------
+ public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        ApplicationContext context= new ClassPathXmlApplicationContext("config.xml");
+        Student student1=(Student)context.getBean("stud1");
+        System.out.println(student1);
+    }
+student.java
+--------------------
+STUDENT.JAVA
+package com.spring.core;
+
+public class Student {
+	
+	private int studentId;
+	private String studentName;
+	private String studentAddress;
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public String getStudentAddress() {
+		return studentAddress;
+	}
+	public void setStudentAddress(String studentAddress) {
+		this.studentAddress = studentAddress;
+	}
+	public Student(int studentId, String studentName, String studentAddress) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.studentAddress = studentAddress;
+	}
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentAddress=" + studentAddress
+				+ "]";
+	}
+	
+	
+	
+
+}
+----------------------------------
+bean-config.xml
+-------------------
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+           
+           <bean class="com.spring.core.Student" name="stud1">
+           <property name="studentId" value="101"></property>
+           <property name="studentName" value="Viraj"></property>
+           <property name="studentAddress" value="Surat"></property>
+           </bean>
+           
+</beans>
+
+=============================
+bean-collection
+ <bean class="com.spring.core.collections.Student" name="studcollection">
+          <property name="name" value="Viraj"></property>
+          <property name="phones">
+          	<list>
+          		<value>8469904699</value>
+          		<value>8469904691</value>
+          		<value>8469904693</value>
+          	</list>
+          </property>
+          
+          <property name="address">
+          	<set>
+          		<value>Surat</value>
+          		<value>Kutch</value>
+          		<value>Baroda</value>
+          	</set>
+          </property>
+          
+          <property name="courses">
+          <map>
+          		<entry key="Java" value="2 Months"></entry>
+          		<entry key="Python" value="1 Months"></entry>
+          		<entry key="C++" value="1.5 Months"></entry>
+          </map>
+          </property>
+          
+          </bean>
+===============================================
+beans - lifecycle
+  <bean name="samosa1" class="com.spring.core.lifecycle.Samosa" init-method="init" destroy-method="destroy">
+           <property name="price" value="15.50"></property>
+           </bean>
+
+================================================================================================
+================================================================================================
+================================================================================================
+SPRING MVC
+-------------
+index.jsp
+------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+This is home page
+home controller
+url /home
+
+<%
+	String name = (String)request.getAttribute("name");
+%>
+<h1>Name is <%=name %></h1>
+
+</body>
+</html>
+==================================
+success.jsp
+-------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<%@page isELIgnored="false" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>
+Welcome ${email }
+Password ${pass } 
+</h1>
+
+</body>
+</html>
+=======================================
+contact.jsp
+------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container mt-5">
+
+<form action="processform" method=post>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="emailbox">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="passwordbox">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+</body>
+</html>
+===========================================================================
+HomeController
+-------------------
+package ciepracticewebapp.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class HomeController {
+	
+	@RequestMapping("/home")
+	public String home(Model model)	
+	{	
+		model.addAttribute("name", "Viraj");
+		System.out.println("This is home URL");
+		return "index";
+	}
+	
+	@RequestMapping("/contact")
+	public String contact()
+	{
+		return "contact";
+	}
+	
+	@RequestMapping(path = "/processform", method = RequestMethod.POST)
+	public String processform(HttpServletRequest request, Model m)
+	{
+		String email = request.getParameter("emailbox");
+		String pass = request.getParameter("passwordbox");
+		
+		System.out.println(email);
+		System.out.println(pass);
+		
+		m.addAttribute("email", email);
+		m.addAttribute("pass", pass);
+		
+		return "success";
+	}
+
+}
+============================================================================================
