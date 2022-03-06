@@ -1,0 +1,17 @@
+"Non invasive Sensor Technology for the Development of a Dairy Cattle Health Monitoring System"
+
+
+The invasive sensors used for the acquisition of animal health is somewhat proven to ineffective due to one-to-one relationship establishment due to invasive sensors. Invasive sensors needs physical contact with the targeted entity to collect or sense the data, which makes it more vulnerable to physical enviroment.
+
+
+Use of Non-Invasive sensors establishes an ontological relationship between the data collected due to its broad range of spectrometer, which in turns can be merged with any other hetrogenous data source or database of diseases.
+
+Table 1 shows the most commonly occured diseases in farm animals. Although each individual diseases shows low percentage of farms animal affection, however the economic impact are quite high. Following tables also indicates the measurable indicators of cattle diseases which cost the dairy industry a significant amount.
+
+Table 4 shows the Diseases and sensor relation with their behavioural changes.
+
+table 5 shows the basic information for cow health forecasting comparing the category and it's various variation. The knowledge or the insights can be gained using fuzzy logic rule-based deduction engine such that it is easily understandable by the user. The sensor system development may be described in four levels:
+	Sensor technique
+	Data interpertation
+	Information integration
+	decision making
