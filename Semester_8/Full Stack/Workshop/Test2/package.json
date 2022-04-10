@@ -1,0 +1,25 @@
+{
+  "name": "bmiit-demo",
+  "version": "1.0.0",
+  "description": "this is description of workshop by Divyesh Pujari",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "migrate-status":"migrate-mongo status",
+    "migration":"migrate-mongo up"
+  },
+  "keywords": [
+    "express",
+    "mongoose",
+    "mongodb",
+    "js",
+    "workshop"
+  ],
+  "author": "Viraj Thakkar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9"
+  }
+}

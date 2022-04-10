@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://root:root@devconnector.xqunw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "mongoURI": "mongodb://127.0.0.1:27017/FundBoxDB",
     "jwtSecret": "mysecret"
 }
